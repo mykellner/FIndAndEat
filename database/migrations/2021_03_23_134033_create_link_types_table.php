@@ -15,6 +15,7 @@ class CreateLinkTypesTable extends Migration
     {
         Schema::create('link_types', function (Blueprint $table) {
             $table->id();
+            $table->string('type');
             $table->timestamps();
         });
     }
