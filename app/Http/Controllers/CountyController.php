@@ -14,7 +14,7 @@ class CountyController extends Controller
      */
     public function index()
     {
-        //
+         return view('counties/index');
     }
 
     /**

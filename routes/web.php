@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\CountyController;
+use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
