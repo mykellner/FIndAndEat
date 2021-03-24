@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Restaurant;
+use App\Models\County;
+use App\Models\City;
+
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -12,9 +15,10 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(County $county, City $cities)
     {
         //
+        return view('restaurant/index', ['cities' => $cities, 'county' => $county, 'restaurant' => Restaurant::all()]);
     }
 
     /**
@@ -44,9 +48,10 @@ class RestaurantController extends Controller
      * @param  \App\Models\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function show(Restaurant $restaurant)
+    public function show(County $county, City $city, Restaurant $restaurant)
     {
         //
+        return view('restaurants.show', ['city' => $city, 'county' => $county,'restaurant' => $restaurant]);
     }
 
     /**
