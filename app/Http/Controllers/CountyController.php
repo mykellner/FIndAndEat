@@ -14,7 +14,9 @@ class CountyController extends Controller
      */
     public function index()
     {
-         return view('counties/index');
+
+        return view('counties/index', ['counties' => County::all()]);
+
     }
 
     /**
@@ -47,6 +49,8 @@ class CountyController extends Controller
     public function show(County $county)
     {
         //
+        return view('counties/show', ['county' => $county]);
+
     }
 
     /**
