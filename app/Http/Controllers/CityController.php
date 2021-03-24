@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\County;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 
 class CityController extends Controller
@@ -24,9 +26,11 @@ class CityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(County $county)
     {
         //
+        abort_unless(Auth::check(), 401);
+        return view('cities/create', ['county' => $county]);
     }
 
     /**
@@ -35,9 +39,19 @@ class CityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(County $county, Request $request)
     {
         //
+        if(!$request->filled('name')) {
+            return redirect()->back()->with('warning', 'Please enter a name for this County');
+        }
+
+        $city = City::create([
+            'name' => $request->input('name'),
+            'county_id' => $county->id,
+        ]);
+
+        return redirect()->route('cities.show', ['city' => $city]);
     }
 
     /**
@@ -60,6 +74,7 @@ class CityController extends Controller
     public function edit(City $city)
     {
         //
+
     }
 
     /**
@@ -85,5 +100,5 @@ class CityController extends Controller
         //
     }
 
-   
+
 }

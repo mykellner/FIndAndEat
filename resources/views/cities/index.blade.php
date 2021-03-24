@@ -8,7 +8,9 @@
 
 
 <p>{{$city->name}}</p>
-    
+
 @endforeach
+
+
 
 @endsection
