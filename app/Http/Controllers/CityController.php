@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\County;
 use Illuminate\Http\Request;
 
 class CityController extends Controller
@@ -12,9 +13,10 @@ class CityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(County $county)
     {
-        //
+        $cities = City::all();
+        return view('cities/index', ['cities' => $cities, 'county' => $county]);
     }
 
     /**
@@ -44,9 +46,9 @@ class CityController extends Controller
      * @param  \App\Models\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function show(City $city)
+    public function show(County $county, City $city)
     {
-        //
+        return view('cities/show', ['city' => $city, 'county' => $county]);
     }
 
     /**
@@ -82,4 +84,6 @@ class CityController extends Controller
     {
         //
     }
+
+   
 }
