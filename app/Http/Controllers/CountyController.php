@@ -27,6 +27,7 @@ class CountyController extends Controller
      */
     public function create()
     {
+        abort_unless(Auth::check(), 401);
         return view('counties/create');
     }
 
@@ -38,8 +39,6 @@ class CountyController extends Controller
      */
     public function store(Request $request)
     {
-        abort_unless(Auth::check(), 404, 'not authorized');
-
 
         if(!$request->filled('name')) {
             return redirect()->back()->with('warning', 'Please enter a name for this County');
