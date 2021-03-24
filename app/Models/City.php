@@ -11,4 +11,6 @@ class City extends Model
     {
         return $this->belongsTo(County::class);
     }
+
+    protected $fillable = ['name'];
 }
