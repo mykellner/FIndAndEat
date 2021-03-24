@@ -6,7 +6,7 @@
 
 <div class="actions">
     @auth
-    <a href="/counties/create" class="btn btn-primary btn-sm">Create new County</a>
+    <a href="{{ route('counties.create')}}" class="btn btn-primary btn-sm">Create new County</a>
     @endauth
 </div>
 
