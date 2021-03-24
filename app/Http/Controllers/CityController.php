@@ -51,7 +51,7 @@ class CityController extends Controller
             'county_id' => $county->id,
         ]);
 
-        return redirect()->route('cities.show', ['city' => $city]);
+        return redirect()->route('cities.show', ['city' => $city, 'county' => $county]);
     }
 
     /**
