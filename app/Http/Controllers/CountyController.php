@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\County;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CountyController extends Controller
 {
@@ -26,7 +27,7 @@ class CountyController extends Controller
      */
     public function create()
     {
-        //
+        return view('counties/create');
     }
 
     /**
@@ -37,7 +38,16 @@ class CountyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        abort_unless(Auth::check(), 404, 'not authorized');
+
+
+        if(!$request->filled('name')) {
+            return redirect()->back()->with('warning', 'Please enter a name for this County');
+        }
+
+        $county = County::create(['name' => $request->input('name')]);
+    
+        return redirect()->route('counties.show', ['county' => $county]);
     }
 
     /**
