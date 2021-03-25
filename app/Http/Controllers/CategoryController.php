@@ -48,7 +48,7 @@ class CategoryController extends Controller
             'name' => $request->input('name')
         ]);
 
-        return redirect()->route('categories.show', ['category' => $category, 'city' => $city, 'county' => $county]);
+        return redirect()->route('categories.show', ['category' => $category, 'city' => $city, 'county' => $county])->with('success', 'Successfully created an Category.');;
     }
 
     /**
@@ -108,6 +108,6 @@ class CategoryController extends Controller
 
         $category->delete();
 
-		return redirect()->route('cities.show', ['county' => $county, 'city' => $city, 'category' => $category])->with('success', 'Name of the category updated.');
+		return redirect()->route('cities.show', ['county' => $county, 'city' => $city, 'category' => $category])->with('danger', 'Category deleted.');
     }
 }
