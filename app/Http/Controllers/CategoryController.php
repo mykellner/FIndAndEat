@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\County;
 use App\Models\City;
 
+use Illuminate\Support\Facades\Auth;
+
+
 class CategoryController extends Controller
 {
     /**
@@ -56,7 +59,7 @@ class CategoryController extends Controller
      */
     public function show(County $county, City $city, Category $category)
     {
-      
+
         return view('categories.show', ['category' => $category, 'city' => $city, 'county' => $county]);
     }
 
@@ -66,9 +69,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(County $county, City $city, Category $category)
     {
         //
+        return view('categories/edit', ['county' => $county, 'city' => $city, 'category' => $category]);
+
     }
 
     /**
@@ -78,9 +83,17 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, County $county, City $city, Category $category)
     {
-        //
+        if (!$request->filled('name')) {
+			return redirect()->back()->with('warning', 'Please enter a name for the category.');
+		}
+
+        $category->update([
+			'name' => $request->input('name'),
+		]);
+
+        return redirect()->route('cities.show', ['county' => $county, 'city' => $city, 'category' => $category])->with('success', 'Name of the category updated.');
     }
 
     /**
@@ -89,8 +102,12 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(County $county, City $city, Category $category)
     {
-        //
+        abort_unless(Auth::check(), 401, 'You have to be logged in.');
+
+        $category->delete();
+
+		return redirect()->route('cities.show', ['county' => $county, 'city' => $city, 'category' => $category])->with('success', 'Name of the category updated.');
     }
 }
