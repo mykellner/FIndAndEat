@@ -26,7 +26,7 @@ Auth::routes();
 Route::resource('/counties', CountyController::class);
 Route::resource('/counties/{county}/cities', CityController::class);
 Route::resource('/counties/{county}/cities/{city}/restaurants', RestaurantController::class);
-Route::resource('/counties/{county}/cities/{city}/restuarants/categories', CategoryController::class);
+Route::resource('/counties/{county}/cities/{city}/categories{category}', CategoryController::class);
 
 
 
