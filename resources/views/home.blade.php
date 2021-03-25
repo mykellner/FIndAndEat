@@ -15,6 +15,10 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    <div class="actions">
+                        <a href="{{ route('counties.create')}}" class="btn btn-primary btn-sm">Create new County</a>
+                    </div>
                 </div>
             </div>
         </div>
