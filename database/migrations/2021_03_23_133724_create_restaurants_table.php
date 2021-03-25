@@ -22,6 +22,7 @@ class CreateRestaurantsTable extends Migration
             $table->decimal('latitude')->nullable();
             $table->decimal('longitude')->nullable();
             $table->bigInteger('city_id')->unsigned();
+            $table->bigInteger('category_id')->nullable();
             $table->timestamps();
         });
     }
