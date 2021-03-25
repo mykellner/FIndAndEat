@@ -17,6 +17,12 @@
     @endauth
 </div>
 
+<form action="{{ route('cities.destroy', ['county' => $county,'city' => $city]) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn btn-danger">Delete city</button>
+    </form>
+
 @foreach ($categories as $category)
 
 <a href="{{ route('categories.show', ['county' => $county, 'city' => $city, 'category' => $category]) }}"><b><h4>{{$category->name}}</h4></b></a>
@@ -29,6 +35,10 @@
 <p>{{$restaurant->description}} </br>{{$restaurant->address}}</p>
 
 @endforeach
+
+<div class="mt-4">
+    <a href="{{ route('counties.show', ['county' => $county]) }}" class="btn btn-secondary">&laquo; Back</a>
+ </div>
 
 
 

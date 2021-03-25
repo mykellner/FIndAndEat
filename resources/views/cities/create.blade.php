@@ -14,7 +14,8 @@
  <button type="submit" class="btn btn-success w-100">Create</button>
  </form>
 
- <div class="mt-5">
- <a href="{{ route('cities.show', ['county' => $county] ]}" class="btn btn-secondary">&laquo; Back</a>
- </div>
+ <div class="mt-4">
+   <a href="{{ route('counties.show', ['county' => $county]) }}" class="btn btn-secondary">&laquo; Back to County</a>
+</div>
+
 @endsection

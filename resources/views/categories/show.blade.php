@@ -14,5 +14,8 @@
 @endforeach
 
 
+<div class="mt-4">
+    <a href="{{ route('cities.show', ['county' => $county, 'city' => $city]) }}" class="btn btn-secondary">&laquo; Back</a>
+ </div>
 
 @endsection
