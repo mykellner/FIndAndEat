@@ -73,9 +73,9 @@ class CityController extends Controller
      * @param  \App\Models\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function edit(City $city)
+    public function edit(County $county, City $city)
     {
-        //
+        return view('cities/edit', ['city' => $city, 'county' => $county]);
 
     }
 
@@ -86,9 +86,17 @@ class CityController extends Controller
      * @param  \App\Models\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, City $city)
+    public function update(Request $request, County $county, City $city)
     {
-        //
+        if (!$request->filled('name')) {
+            return redirect()->back()->with('warning', 'Please enter a title for the article.');
+            }
+
+        $city->update([
+            'name' => $request->input('name'),
+            ]);
+        
+        return redirect()->route('cities.show', ['county' => $county, 'city' => $city])->with('success', 'Article updated.');
     }
 
     /**
