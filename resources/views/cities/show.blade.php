@@ -4,6 +4,13 @@
 
 <h1>Restauranger i {{$city->name}}, {{$county->name}} </h1>
 
+
+<div class="actions">
+    @auth
+    <a href="{{ route('restaurants.create', ['county' => $county, 'city' => $city])}}" class="btn btn-primary btn-sm">Create new Restaurant</a>
+    @endauth
+</div>
+
 @foreach ($city->restaurants as $restaurant)
 
 <a href="{{ route('restaurants.show', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant]) }}"><b><h4>{{$restaurant->name}}</h4></b></a>

@@ -16,6 +16,6 @@
  </form>
  
  <div class="mt-5">
- <a href="/counties" class="btn btn-secondary">&laquo; Back</a>
+ <a href="{{ route ('counties.index')}} class="btn btn-secondary">&laquo; Back</a>
  </div>
 @endsection
