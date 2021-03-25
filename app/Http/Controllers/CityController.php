@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\County;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -62,7 +63,8 @@ class CityController extends Controller
      */
     public function show(County $county, City $city)
     {
-        return view('cities/show', ['city' => $city, 'county' => $county]);
+        $categories = Category::all();
+        return view('cities/show', ['city' => $city, 'county' => $county, 'categories' => $categories]);
     }
 
     /**

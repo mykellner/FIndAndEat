@@ -10,6 +10,7 @@
     @endauth
 </div>
 
+
 @foreach ($counties as $county)
     <a href="{{ route('counties.show', ['county' => $county]) }}"><p>{{ $county->name }} </p></a>
 @endforeach

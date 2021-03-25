@@ -11,6 +11,18 @@
     @endauth
 </div>
 
+<div class="actions mt-3">
+    @auth
+    <a href="{{ route('categories.create', ['county' => $county, 'city' => $city])}}" class="btn btn-primary btn-sm">Create new Category</a>
+    @endauth
+</div>
+
+@foreach ($categories as $category)
+
+<a href="{{ route('categories.show', ['county' => $county, 'city' => $city, 'category' => $category]) }}"><b><h4>{{$category->name}}</h4></b></a>
+
+@endforeach
+
 @foreach ($city->restaurants as $restaurant)
 
 <a href="{{ route('restaurants.show', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant]) }}"><b><h4>{{$restaurant->name}}</h4></b></a>
