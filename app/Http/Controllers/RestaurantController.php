@@ -78,9 +78,11 @@ class RestaurantController extends Controller
      * @param  \App\Models\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function edit(Restaurant $restaurant)
+    public function edit(County $county, City $city, Restaurant $restaurant)
     {
-        //
+        $categories = Category::all();
+        $cities = City::all();
+        return view('restaurants/edit', ['city' => $city, 'county' => $county,'restaurant' => $restaurant, 'cities' => $cities, 'categories' => $categories]);
     }
 
     /**
@@ -90,9 +92,20 @@ class RestaurantController extends Controller
      * @param  \App\Models\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Restaurant $restaurant)
+    public function update(Request $request, County $county, City $city, Restaurant $restaurant)
     {
-        //
+        if (!$request->filled('name')) {
+            return redirect()->back()->with('warning', 'Please enter a name for the article.');
+            }
+
+        $restaurant->update([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'address' => $request->input('address'),
+            'city_id' => $request->input('city_id'),
+            ]);
+        
+        return redirect()->route('restaurants.show', ['city' => $city, 'county' => $county,'restaurant' => $restaurant])->with('success', 'Restaurant updated.');
     }
 
     /**

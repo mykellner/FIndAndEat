@@ -3,7 +3,7 @@
 @section('content')
  <h1 class="mb-3">Edit {{$city->name}}</h1>
 
- <form class="form" action='{{ route('cities.store', ['county' => $county, 'city' => $city])}} ' method="POST">
+ <form class="form" action='{{ route('cities.show', ['county' => $county, 'city' => $city])}} ' method="POST">
  @csrf @method('PUT')
 
  <div class="mb-3">

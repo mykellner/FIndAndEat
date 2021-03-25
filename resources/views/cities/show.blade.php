@@ -17,6 +17,12 @@
     @endauth
 </div>
 
+<div class="actions">
+    @auth
+    <a href="{{ route('cities.edit', ['county' => $county, 'city' => $city])}}" class="btn btn-primary btn-sm">Edit City</a>
+    @endauth
+</div>
+
 <form action="{{ route('cities.destroy', ['county' => $county,'city' => $city]) }}" method="POST">
     @csrf
     @method('DELETE')

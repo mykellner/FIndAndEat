@@ -89,7 +89,7 @@ class CityController extends Controller
     public function update(Request $request, County $county, City $city)
     {
         if (!$request->filled('name')) {
-            return redirect()->back()->with('warning', 'Please enter a title for the article.');
+            return redirect()->back()->with('warning', 'Please enter a title for the city.');
             }
 
         $city->update([

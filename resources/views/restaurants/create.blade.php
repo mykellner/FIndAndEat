@@ -57,7 +57,4 @@
 </div>
 
 
- {{-- <div class="mt-5">
- <a href="{{ route ('restaurants.index')}}" class="btn btn-secondary">&laquo; Back</a>
- </div> --}}
 @endsection
