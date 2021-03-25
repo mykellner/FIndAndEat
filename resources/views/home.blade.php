@@ -16,15 +16,6 @@
 
                     {{ __('You are logged in!') }}
 
-                    <div class="actions">
-                        <a href="{{ route('counties.create')}}" class="btn btn-primary btn-sm">Create new County</a>
-                    </div>
-
-                    <div class="actions">
-                        @auth
-                        <a href="{{ route('cities.create')}}" class="btn btn-primary btn-sm">Create a new City</a>
-                        @endauth
-                    </div>
                 </div>
             </div>
         </div>
