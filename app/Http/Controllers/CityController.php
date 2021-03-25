@@ -96,7 +96,7 @@ class CityController extends Controller
             'name' => $request->input('name'),
             ]);
         
-        return redirect()->route('cities.show', ['county' => $county, 'city' => $city])->with('success', 'Article updated.');
+        return redirect()->route('cities.show', ['county' => $county, 'city' => $city])->with('success', 'City updated.');
     }
 
     /**
@@ -105,9 +105,21 @@ class CityController extends Controller
      * @param  \App\Models\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function destroy(City $city)
+    public function destroy(County $county, City $city)
     {
-        //
+        abort_unless(Auth::check(), 401, 'You have to be logged in to delete this city.');
+        
+        foreach ($city->restaurants as $restaurant){
+            foreach($restaurant->categories as $category) {
+                $restaurant->categories()->detach($category->id);
+            }
+
+        }
+
+        $city->restaurants()->delete();
+		$city->delete();
+
+		return redirect()->route('counties.show', ['county' => $county, 'city' => $city])->with('success', 'City has been deleted');
     }
 
 
