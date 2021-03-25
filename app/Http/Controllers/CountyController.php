@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\County;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -104,6 +105,10 @@ class CountyController extends Controller
      */
     public function destroy(County $county)
     {
-        //
+        abort_unless(Auth::check(), 401, 'You have to be logged in.');
+
+        $county->delete();
+
+		return redirect()->route('counties.index')->with('success', 'County has been deleted');
     }
 }

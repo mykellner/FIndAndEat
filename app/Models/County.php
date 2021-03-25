@@ -14,4 +14,14 @@ class County extends Model
         return $this->hasMany(City::class);
     }
 
+    protected static function boot() {
+        parent::boot();
+
+        static::deleting(function($county) {
+            foreach($county->cities as $city){
+              $city->delete();
+            }
+        });
+    }
+
 }

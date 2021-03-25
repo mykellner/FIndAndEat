@@ -25,6 +25,13 @@
     @endauth
 </div>
 
+<form action="{{ route('counties.destroy', ['county' => $county]) }}" method="POST">
+    @csrf
+    @method('DELETE')
+
+    <button type="submit" class="btn btn-danger">Delete county</button>
+    </form>
+
 <div class="mt-4">
     <a href="{{ route('counties.index') }}" class="btn btn-secondary">&laquo; Back</a>
 </div>
