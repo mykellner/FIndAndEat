@@ -18,4 +18,15 @@
     @endauth
 </div>
 
+<br>
+<div class="actions">
+    @auth
+    <a href="{{ route('counties.edit', ['county' => $county])}}" class="btn btn-primary btn-sm">Edit County</a>
+    @endauth
+</div>
+
+<div class="mt-4">
+    <a href="{{ route('counties.index') }}" class="btn btn-secondary">&laquo; Back</a>
+</div>
+
 @endsection

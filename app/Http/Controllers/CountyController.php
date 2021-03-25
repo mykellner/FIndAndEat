@@ -45,7 +45,7 @@ class CountyController extends Controller
         }
 
         $county = County::create(['name' => $request->input('name')]);
-    
+
         return redirect()->route('counties.show', ['county' => $county]);
     }
 
@@ -70,7 +70,7 @@ class CountyController extends Controller
      */
     public function edit(County $county)
     {
-        //
+        return view('counties/edit', ['county' => $county]);
     }
 
     /**
@@ -83,6 +83,17 @@ class CountyController extends Controller
     public function update(Request $request, County $county)
     {
         //
+
+        if (!$request->filled('name')) {
+			return redirect()->back()->with('warning', 'Please enter a title for the article.');
+		}
+
+        $county->update([
+			'name' => $request->input('name'),
+		]);
+
+        return redirect()->route('counties.show', ['county' => $county])->with('success', 'Article updated.');
+
     }
 
     /**
