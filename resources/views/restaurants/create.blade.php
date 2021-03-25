@@ -36,6 +36,16 @@
         <input type="text" id="longitude" name="longitude" class="form-control" placeholder="Longitude">
     </div>
 
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="selectbasic">Add categories</label>
+        <ul>
+            @foreach ($categories as $category)
+            <li><input type="checkbox" name="{{$category->name}}" value="{{$category->id}}">{{$category->name}}</li>
+            @endforeach
+        </ul>
+    </div>
+
+
     <input type="hidden" id="city_id" name="city_id" class="form-control" placeholder="city_id" value="{{$city->id}}"required>
 
     <button type="submit" class="btn btn-success w-100">Create</button>

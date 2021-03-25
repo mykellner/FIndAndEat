@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Restaurant;
 use App\Models\County;
 use App\Models\City;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -30,7 +31,8 @@ class RestaurantController extends Controller
     public function create(County $county, City $city)
     {
         abort_unless(Auth::check(), 401);
-        return view('restaurants/create', ['city' => $city, 'county' => $county]);
+        $categories = Category::all();
+        return view('restaurants/create', ['city' => $city, 'county' => $county, 'categories' => $categories]);
     }
 
     /**

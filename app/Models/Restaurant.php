@@ -12,4 +12,10 @@ class Restaurant extends Model
     }
 
     protected $fillable = ['name','description','address','city_id'];
+
+    public function categories(){
+
+        return $this->belongsToMany(Category::class, 'category_restaurant', 'category_id', 'restaurant_id');
+    
+    }
 }
