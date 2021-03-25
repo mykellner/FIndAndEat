@@ -40,7 +40,7 @@
         <label class="col-md-4 control-label" for="selectbasic">Add categories</label>
         <ul>
             @foreach ($categories as $category)
-            <li><input type="checkbox" name="{{$category->name}}" value="{{$category->id}}">{{$category->name}}</li>
+            <li><input type="checkbox" name="categories[]" value="{{$category->id}}">{{$category->name}}</li>
             @endforeach
         </ul>
     </div>

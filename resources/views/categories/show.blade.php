@@ -6,7 +6,7 @@
 
 
 
-@foreach ($city->restaurants as $restaurant)
+@foreach ($category->restaurants as $restaurant)
 
 <a href="{{ route('restaurants.show', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant]) }}"><b><h4>{{$restaurant->name}}</h4></b></a>
 <p>{{$restaurant->description}} </br>{{$restaurant->address}}</p>

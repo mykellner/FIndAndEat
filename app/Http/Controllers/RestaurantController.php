@@ -54,6 +54,8 @@ class RestaurantController extends Controller
             'city_id' => $request->input('city_id'),
             ]);
 
+        $restaurant->categories()->attach($request->input('categories'));
+
     
         return redirect()->route('restaurants.show', ['restaurant' => $restaurant, 'city' => $city, 'county' => $county]);
     }
