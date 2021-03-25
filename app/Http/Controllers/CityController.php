@@ -18,7 +18,7 @@ class CityController extends Controller
      */
     public function index(County $county)
     {
-        $cities = City::all();
+        $cities = $county->cities();
         return view('cities/index', ['cities' => $cities, 'county' => $county]);
     }
 
