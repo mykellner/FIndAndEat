@@ -93,7 +93,7 @@ class CategoryController extends Controller
 			'name' => $request->input('name'),
 		]);
 
-        return redirect()->route('cities.show', ['county' => $county, 'city' => $city, 'category' => $category])->with('success', 'Name of the category updated.');
+        return redirect()->route('categories.show', ['county' => $county, 'city' => $city, 'category' => $category])->with('success', 'Name of the category updated.');
     }
 
     /**
