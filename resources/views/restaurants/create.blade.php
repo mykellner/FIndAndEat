@@ -45,13 +45,24 @@
         </ul>
     </div>
 
+    <form action="" method="POST">
     <div class="form-group mb-3">
+        <label class="" for="counties">County</label>
+        <select id="counties" name="counties">
+            @foreach ($counties as $county)
+                <option value="{{$county->id}}" name="county_{{$county->id}}">{{$county->name}}</option>
+            @endforeach
+            <button type="submit" name="submit-county"></button>
+        </select>
+    </form>
+
         <label class="" for="cities">City</label>
         <select id="cities" name="cities">
             @foreach ($cities as $city)
                 <option value="{{$city->id}}" name="city_{{$city->id}}">{{$city->name}}</option>
             @endforeach
         </select>
+    </div>
 
     <button type="submit" class="btn btn-success w-100 mt-3">Create</button>
 
