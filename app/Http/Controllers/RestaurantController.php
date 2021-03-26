@@ -31,7 +31,7 @@ class RestaurantController extends Controller
     public function create(County $county, City $city)
     {
         abort_unless(Auth::check(), 401);
-        return view('restaurants/create', ['city' => $city, 'county' => $county, 'categories' => Category::orderBy('name')->get(), 'cities' => City::all(), 'counties' => County::all()]);
+        return view('restaurants/create', ['city' => $city, 'county' => $county, 'categories' => Category::orderBy('name')->get(), 'counties' => County::with('cities')->orderBy('name')->get()]);
     }
 
     /**
