@@ -86,14 +86,14 @@ class CountyController extends Controller
         //
 
         if (!$request->filled('name')) {
-			return redirect()->back()->with('warning', 'Please enter a title for the article.');
+			return redirect()->back()->with('warning', 'Please enter a title for the county.');
 		}
 
         $county->update([
 			'name' => $request->input('name'),
 		]);
 
-        return redirect()->route('counties.show', ['county' => $county])->with('success', 'Article updated.');
+        return redirect()->route('counties.show', ['county' => $county])->with('success', 'County updated.');
 
     }
 

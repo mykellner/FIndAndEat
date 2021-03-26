@@ -31,7 +31,7 @@ class RestaurantController extends Controller
     public function create(County $county, City $city)
     {
         abort_unless(Auth::check(), 401);
-        return view('restaurants/create', ['city' => $city, 'county' => $county, 'categories' => Category::orderBy('name')->get()]);
+        return view('restaurants/create', ['city' => $city, 'county' => $county, 'categories' => Category::orderBy('name')->get(), 'cities' => City::all()]);
     }
 
     /**
@@ -52,7 +52,7 @@ class RestaurantController extends Controller
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'address' => $request->input('address'),
-            'city_id' => $request->input('city_id'),
+            'city_id' => $request->input('cities'),
             ]);
 
         $restaurant->categories()->attach($request->input('categories'));
@@ -96,7 +96,7 @@ class RestaurantController extends Controller
     public function update(Request $request, County $county, City $city, Restaurant $restaurant)
     {
         if (!$request->filled('name')) {
-            return redirect()->back()->with('warning', 'Please enter a name for the article.');
+            return redirect()->back()->with('warning', 'Please enter a name for the restaurant.');
             }
 
         $restaurant->update([
@@ -107,9 +107,7 @@ class RestaurantController extends Controller
             ]);
 
             $restaurant->categories()->sync($request->input('categories'));
-            // $restaurant->cities()->sync($request->input('city_id'));
-            // $restaurant->categories()->attach($request->input('categories'));
-        
+            
         return redirect()->route('restaurants.show', ['city' => $city, 'county' => $county,'restaurant' => $restaurant])->with('success', 'Restaurant updated.');
     }
 
@@ -121,11 +119,6 @@ class RestaurantController extends Controller
      */
     public function destroy(County $county, City $city, Restaurant $restaurant)
     {
-        // foreach($restaurant->categories() as $categories){
-
-        // }
-
-        // $restaurant->categories()->sync([]); // synkar tom lista.
         
         abort_unless(Auth::check(), 401, 'You have to be logged in to delete this restaurant.');
         $restaurant->delete();

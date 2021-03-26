@@ -45,10 +45,15 @@
         </ul>
     </div>
 
+    <div class="form-group mb-3">
+        <label class="" for="cities">City</label>
+        <select id="cities" name="cities">
+            @foreach ($cities as $city)
+                <option value="{{$city->id}}" name="city_{{$city->id}}">{{$city->name}}</option>
+            @endforeach
+        </select>
 
-    <input type="hidden" id="city_id" name="city_id" class="form-control" placeholder="city_id" value="{{$city->id}}"required>
-
-    <button type="submit" class="btn btn-success w-100">Create</button>
+    <button type="submit" class="btn btn-success w-100 mt-3">Create</button>
 
  </form>
 

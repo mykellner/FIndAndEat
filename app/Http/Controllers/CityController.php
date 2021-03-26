@@ -75,6 +75,7 @@ class CityController extends Controller
      */
     public function edit(County $county, City $city)
     {
+        abort_unless(Auth::check(), 401, 'You have to be logged in to edit this city.');
         return view('cities/edit', ['city' => $city, 'county' => $county]);
 
     }
@@ -88,6 +89,8 @@ class CityController extends Controller
      */
     public function update(Request $request, County $county, City $city)
     {
+        abort_unless(Auth::check(), 401, 'You have to be logged in to update this city.');
+
         if (!$request->filled('name')) {
             return redirect()->back()->with('warning', 'Please enter a title for the city.');
             }
@@ -109,14 +112,6 @@ class CityController extends Controller
     {
         abort_unless(Auth::check(), 401, 'You have to be logged in to delete this city.');
         
-        foreach ($city->restaurants as $restaurant){
-            foreach($restaurant->categories as $category) {
-                $restaurant->categories()->detach($category->id);
-            }
-
-        }
-
-        $city->restaurants()->delete();
 		$city->delete();
 
 		return redirect()->route('counties.show', ['county' => $county, 'city' => $city])->with('success', 'City has been deleted');
