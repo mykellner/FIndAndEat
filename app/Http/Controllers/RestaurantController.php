@@ -103,10 +103,11 @@ class RestaurantController extends Controller
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'address' => $request->input('address'),
-            'city_id' => $request->input('city_id'),
+            'city_id' => $request->input('cities'),
             ]);
 
             $restaurant->categories()->sync($request->input('categories'));
+            // $restaurant->cities()->sync($request->input('city_id'));
             // $restaurant->categories()->attach($request->input('categories'));
         
         return redirect()->route('restaurants.show', ['city' => $city, 'county' => $county,'restaurant' => $restaurant])->with('success', 'Restaurant updated.');

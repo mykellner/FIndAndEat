@@ -37,38 +37,41 @@
     </div>
 
     <div class="form-group">
-        <label class="col-md-4 control-label" for="selectbasic">Add categories</label>
+        <fieldset>
+        <label class="col-md-4 control-label" for="selectbasic">Categories</label>
         <ul>
             @foreach ($categories as $category)
             {{-- <li><input type="checkbox" name="categories[]" value="{{$category->id}}">{{$category->name}}</li> --}}
 
             <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" name="categories[]" id="category_{{$category->id}}" value="{{$category->id}}">
+                <input type="checkbox" class="form-check-input" name="categories[]" id="category_{{$category->id}}" value="{{$category->id}}" @if($restaurant->categories->contains($category)) checked @endif>
                 <label for="category_{{$category->id}}" class="form-check-label">{{$category->name}}</label>
             </div>
 
             @endforeach
         </ul>
+    </fieldset>
     </div>
 
-    <fieldset>
+    {{-- <fieldset>
         <legend>Categories</legend>
         <div class="form-check form-check-inline">
-        <input type="checkbox" class="form-check-input" name="categories[]" id="{{$category->id}}">
+        <input type="checkbox" class="form-check-input" name="categories[]" id="{{$category->id}}" @if($restaurant->categories->contains($category)) checked @endif>
         <label for="category_{{$category->id}}" class="form-check-label">{{$category->name}}</label>
     </div>
-    </fieldset>
+    </fieldset> --}}
 
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="selectbasic">City</label>
-        <ul>
+    <div class="form-group mb-3">
+        <label class="" for="cities">City</label>
+        <select id="cities" name="cities">
             @foreach ($cities as $city)
-            <li><input type="checkbox" name="city_id" value="{{$city->id}}">{{$city->name}}</li>
+                <option value="{{$city->id}}" name="city_{{$city->id}}" @if($restaurant->city->id == $city->id) selected @endif">{{$city->name}}</option>
             @endforeach
-        </ul>
+        </select>
+        
     </div>
 
-    <button type="submit" class="btn btn-success w-100">Update</button>
+    <button type="submit" class="btn btn-success w-100 ">Update</button>
 
  </form>
 
