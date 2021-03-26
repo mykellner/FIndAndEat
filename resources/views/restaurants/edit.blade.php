@@ -40,16 +40,30 @@
         <label class="col-md-4 control-label" for="selectbasic">Add categories</label>
         <ul>
             @foreach ($categories as $category)
-            <li><input type="checkbox" name="categories[]" value="{{$category->id}}">{{$category->name}}</li>
+            {{-- <li><input type="checkbox" name="categories[]" value="{{$category->id}}">{{$category->name}}</li> --}}
+
+            <div class="form-check form-check-inline">
+                <input type="checkbox" class="form-check-input" name="categories[]" id="category_{{$category->id}}" value="{{$category->id}}">
+                <label for="category_{{$category->id}}" class="form-check-label">{{$category->name}}</label>
+            </div>
+
             @endforeach
         </ul>
     </div>
+
+    <fieldset>
+        <legend>Categories</legend>
+        <div class="form-check form-check-inline">
+        <input type="checkbox" class="form-check-input" name="categories[]" id="{{$category->id}}">
+        <label for="category_{{$category->id}}" class="form-check-label">{{$category->name}}</label>
+    </div>
+    </fieldset>
 
     <div class="form-group">
         <label class="col-md-4 control-label" for="selectbasic">City</label>
         <ul>
             @foreach ($cities as $city)
-            <li><input type="checkbox" name="categories[]" value="{{$city->id}}">{{$city->name}}</li>
+            <li><input type="checkbox" name="city_id" value="{{$city->id}}">{{$city->name}}</li>
             @endforeach
         </ul>
     </div>
@@ -62,5 +76,7 @@
     <a href="{{ route('cities.show', ['county' => $county, 'city' => $city]) }}" class="btn btn-secondary">&laquo; Back</a>
 </div>
 
+$restaurant->categories()->sync('värden som ska vara nu(categories)')
+$restaurant->cities()->sync('värden som ska vara nu(cities)')
 
 @endsection

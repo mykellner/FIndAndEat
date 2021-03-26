@@ -31,8 +31,7 @@ class RestaurantController extends Controller
     public function create(County $county, City $city)
     {
         abort_unless(Auth::check(), 401);
-        $categories = Category::all();
-        return view('restaurants/create', ['city' => $city, 'county' => $county, 'categories' => $categories]);
+        return view('restaurants/create', ['city' => $city, 'county' => $county, 'categories' => Category::orderBy('name')->get()]);
     }
 
     /**
@@ -46,6 +45,8 @@ class RestaurantController extends Controller
         if(!$request->filled('name')) {
             return redirect()->back()->with('warning', 'Please enter a name for this County');
         }
+
+        // $restaurant = $city->restaurants()->create([])
 
         $restaurant = Restaurant::create([
             'name' => $request->input('name'),
@@ -104,6 +105,9 @@ class RestaurantController extends Controller
             'address' => $request->input('address'),
             'city_id' => $request->input('city_id'),
             ]);
+
+            $restaurant->categories()->sync($request->input('categories'));
+            // $restaurant->categories()->attach($request->input('categories'));
         
         return redirect()->route('restaurants.show', ['city' => $city, 'county' => $county,'restaurant' => $restaurant])->with('success', 'Restaurant updated.');
     }
@@ -116,6 +120,10 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        //
+        foreach($restaurant->categories() as $categories){
+
+        }
+
+        $restaurant->categories()->sync([]); // synkar tom lista. 
     }
 }

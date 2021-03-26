@@ -17,6 +17,10 @@ class CategoryRestaurant extends Migration
             $table->id();
             $table->bigInteger('restaurant_id')->unsigned();
             $table->bigInteger('category_id')->unsigned();
+
+            $table->unique(['restaurant_id', 'category_id']);
+
+
             $table->timestamps();
         });
     }
