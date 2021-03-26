@@ -27,7 +27,7 @@
     @csrf
     @method('DELETE')
     <button type="submit" class="btn btn-danger">Delete city</button>
-    </form>
+</form>
 
 @foreach ($categories as $category)
 

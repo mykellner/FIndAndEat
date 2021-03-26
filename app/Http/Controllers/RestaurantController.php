@@ -119,12 +119,16 @@ class RestaurantController extends Controller
      * @param  \App\Models\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Restaurant $restaurant)
+    public function destroy(County $county, City $city, Restaurant $restaurant)
     {
-        foreach($restaurant->categories() as $categories){
+        // foreach($restaurant->categories() as $categories){
 
-        }
+        // }
 
-        $restaurant->categories()->sync([]); // synkar tom lista. 
+        // $restaurant->categories()->sync([]); // synkar tom lista.
+        
+        abort_unless(Auth::check(), 401, 'You have to be logged in to delete this restaurant.');
+        $restaurant->delete();
+		return redirect()->route('cities.show', ['county' => $county, 'city' => $city])->with('success', 'Restaurant has been deleted');
     }
 }

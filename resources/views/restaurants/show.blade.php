@@ -7,10 +7,14 @@
 <p>{{$restaurant->address}}</p>
 
 <div class="actions">
-    @auth
     <a href="{{ route('restaurants.edit', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant])}}" class="btn btn-primary btn-sm">Edit Restaurant</a>
-    @endauth
 </div>
+
+<form action="{{ route('restaurants.destroy', ['county' => $county,'city' => $city, 'restaurant' => $restaurant]) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn btn-danger">Delete restaurant</button>
+</form>
 
 
 <div class="mt-4">
