@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\County;
 use App\Models\Restaurant;
+use App\Models\Category;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +19,10 @@ class CountyController extends Controller
     public function index()
     {
 
-        return view('counties/index', ['counties' => County::all()]);
+        return view('counties/index', [
+			'counties' => County::all(),
+			'restaurants' => Restaurant::orderBy('id')->take(3)->get()
+		]);
 
     }
 
@@ -42,10 +47,12 @@ class CountyController extends Controller
     {
 
         if(!$request->filled('name')) {
-            return redirect()->back()->with('warning', 'Please enter a name for this County');
+            return redirect()->back()->with('warning', 'A name of the County is required.');
         }
 
-        $county = County::create(['name' => $request->input('name')]);
+        $county = County::create([
+			'name' => $request->input('name')
+		]);
 
         return redirect()->route('counties.show', ['county' => $county]);
     }
@@ -58,8 +65,12 @@ class CountyController extends Controller
      */
     public function show(County $county)
     {
-        //
-        return view('counties/show', ['county' => $county]);
+
+        return view('counties/show', [
+			'county' => $county,
+			'restaurants' => Restaurant::orderBy('name')->get(),
+			'categories' => Category::all()
+		]);
 
     }
 
@@ -71,7 +82,9 @@ class CountyController extends Controller
      */
     public function edit(County $county)
     {
-        return view('counties/edit', ['county' => $county]);
+        return view('counties/edit',[
+			'county' => $county
+		]);
     }
 
     /**
@@ -86,14 +99,14 @@ class CountyController extends Controller
         //
 
         if (!$request->filled('name')) {
-			return redirect()->back()->with('warning', 'Please enter a title for the county.');
+			return redirect()->back()->with('warning', 'A new name of the county is needed..');
 		}
 
         $county->update([
 			'name' => $request->input('name'),
 		]);
 
-        return redirect()->route('counties.show', ['county' => $county])->with('success', 'County updated.');
+        return redirect()->route('counties.show', ['county' => $county])->with('success', 'You have updated the name of County.');
 
     }
 
@@ -109,6 +122,6 @@ class CountyController extends Controller
 
         $county->delete();
 
-		return redirect()->route('counties.index')->with('success', 'County has been deleted');
+		return redirect()->route('counties.index')->with('success', 'The selected county has been deleted');
     }
 }
