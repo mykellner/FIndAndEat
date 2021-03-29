@@ -48,15 +48,13 @@ class CountyController extends Controller
     public function store(Request $request)
     {
 
-        if(!$request->filled('name')) {
-            return redirect()->back()->with('warning', 'A name of the County is required.');
-        }
+        abort_unless(Auth::check(), 401);
 
         $county = County::create([
 			'name' => $request->input('name')
 		]);
 
-        return redirect()->route('counties.show', ['county' => $county]);
+        return redirect()->route('counties.show', ['county' => $county])->with('success', 'County has been created.');
     }
 
     /**
@@ -82,7 +80,8 @@ class CountyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(County $county)
-    {
+    {   
+        abort_unless(Auth::check(), 401);
         return view('counties/edit',[
 			'county' => $county
 		]);
@@ -97,17 +96,13 @@ class CountyController extends Controller
      */
     public function update(Request $request, County $county)
     {
-        //
-
-        if (!$request->filled('name')) {
-			return redirect()->back()->with('warning', 'A new name of the county is needed..');
-		}
+        abort_unless(Auth::check(), 401);
 
         $county->update([
 			'name' => $request->input('name'),
 		]);
 
-        return redirect()->route('counties.show', ['county' => $county])->with('success', 'You have updated the name of County.');
+        return redirect()->route('counties.show', ['county' => $county])->with('success', 'County has been updated.');
 
     }
 
@@ -119,10 +114,10 @@ class CountyController extends Controller
      */
     public function destroy(County $county)
     {
-        abort_unless(Auth::check(), 401, 'You have to be logged in.');
+        abort_unless(Auth::check(), 401);
 
         $county->delete();
 
-		return redirect()->route('counties.index')->with('success', 'The selected county has been deleted');
+		return redirect()->route('counties.index')->with('success', 'County has been deleted');
     }
 }

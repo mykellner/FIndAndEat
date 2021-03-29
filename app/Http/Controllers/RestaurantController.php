@@ -19,8 +19,7 @@ class RestaurantController extends Controller
      */
     public function index(County $county, City $cities)
     {
-        //
-        // return view('restaurant/index', ['cities' => $cities, 'county' => $county, 'restaurant' => Restaurant::all()]);
+    
     }
 
     /**
@@ -42,11 +41,8 @@ class RestaurantController extends Controller
      */
     public function store(Request $request, County $county, City $city)
     {
-        if(!$request->filled('name')) {
-            return redirect()->back()->with('warning', 'Please enter a name for this County');
-        }
 
-        // $restaurant = $city->restaurants()->create([])
+        abort_unless(Auth::check(), 401);
 
         $restaurant = Restaurant::create([
             'name' => $request->input('name'),
@@ -56,9 +52,8 @@ class RestaurantController extends Controller
             ]);
 
         $restaurant->categories()->attach($request->input('categories'));
-
     
-        return redirect()->route('restaurants.show', ['restaurant' => $restaurant, 'city' => $city, 'county' => $county]);
+        return redirect()->route('restaurants.show', ['restaurant' => $restaurant, 'city' => $city, 'county' => $county])->with('success', 'Restaurant has been created.');
     }
 
     /**
@@ -81,9 +76,8 @@ class RestaurantController extends Controller
      */
     public function edit(County $county, City $city, Restaurant $restaurant)
     {
-        $categories = Category::all();
-        $cities = City::all();
-        return view('restaurants/edit', ['city' => $city, 'county' => $county,'restaurant' => $restaurant, 'cities' => $cities, 'categories' => $categories]);
+        abort_unless(Auth::check(), 401);
+        return view('restaurants/edit', ['city' => $city, 'county' => $county,'restaurant' => $restaurant, 'cities' => City::all(), 'categories' => Category::all()]);
     }
 
     /**
@@ -95,9 +89,7 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, County $county, City $city, Restaurant $restaurant)
     {
-        if (!$request->filled('name')) {
-            return redirect()->back()->with('warning', 'Please enter a name for the restaurant.');
-            }
+        abort_unless(Auth::check(), 401);
 
         $restaurant->update([
             'name' => $request->input('name'),
@@ -108,7 +100,7 @@ class RestaurantController extends Controller
 
             $restaurant->categories()->sync($request->input('categories'));
             
-        return redirect()->route('restaurants.show', ['city' => $city, 'county' => $county,'restaurant' => $restaurant])->with('success', 'Restaurant updated.');
+        return redirect()->route('restaurants.show', ['city' => $city, 'county' => $county,'restaurant' => $restaurant])->with('success', 'Restaurant has been updated.');
     }
 
     /**
@@ -120,7 +112,7 @@ class RestaurantController extends Controller
     public function destroy(County $county, City $city, Restaurant $restaurant)
     {
         
-        abort_unless(Auth::check(), 401, 'You have to be logged in to delete this restaurant.');
+        abort_unless(Auth::check(), 401);
         $restaurant->delete();
 		return redirect()->route('cities.show', ['county' => $county, 'city' => $city])->with('success', 'Restaurant has been deleted');
     }

@@ -29,6 +29,7 @@ class CategoryController extends Controller
      */
     public function create(County $county, City $city)
     {
+        abort_unless(Auth::check(), 401);
         return view('categories/create', ['city' => $city, 'county' => $county]);
     }
 
@@ -40,15 +41,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request, County $county, City $city)
     {
-        if(!$request->filled('name')) {
-            return redirect()->back()->with('warning', 'Please enter a name for this Category');
-        }
+        abort_unless(Auth::check(), 401);
 
         $category = Category::create([
             'name' => $request->input('name')
         ]);
 
-        return redirect()->route('categories.show', ['category' => $category, 'city' => $city, 'county' => $county])->with('success', 'Successfully created an Category.');;
+        return redirect()->route('categories.show', ['category' => $category, 'city' => $city, 'county' => $county])->with('success', 'Successfully created a Category.');;
     }
 
     /**
@@ -59,7 +58,6 @@ class CategoryController extends Controller
      */
     public function show(County $county, City $city, Category $category)
     {
-
         return view('categories.show', ['category' => $category, 'city' => $city, 'county' => $county]);
     }
 
@@ -71,7 +69,7 @@ class CategoryController extends Controller
      */
     public function edit(County $county, City $city, Category $category)
     {
-        //
+        abort_unless(Auth::check(), 401);
         return view('categories/edit', ['county' => $county, 'city' => $city, 'category' => $category]);
 
     }
@@ -85,9 +83,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, County $county, City $city, Category $category)
     {
-        if (!$request->filled('name')) {
-			return redirect()->back()->with('warning', 'Please enter a name for the category.');
-		}
+        abort_unless(Auth::check(), 401);
 
         $category->update([
 			'name' => $request->input('name'),
@@ -104,7 +100,7 @@ class CategoryController extends Controller
      */
     public function destroy(County $county, City $city, Category $category)
     {
-        abort_unless(Auth::check(), 401, 'You have to be logged in.');
+        abort_unless(Auth::check(), 401);
 
         $category->delete();
 
