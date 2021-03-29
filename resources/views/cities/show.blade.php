@@ -73,9 +73,8 @@
 									@else
 										<small><li class="list-inline-item">No specefic category</li></small>
 									@endif
+									<small>Address: {{ $restaurant->address}}</small>
 								</ul>
-
-								<small>Address: {{ $restaurant->address}}</small>
 
 								<p class="description">
 									@if(!empty($restaurant->description))
