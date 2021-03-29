@@ -20,7 +20,7 @@ class RestaurantController extends Controller
     public function index(County $county, City $cities)
     {
         //
-        return view('restaurant/index', ['cities' => $cities, 'county' => $county, 'restaurant' => Restaurant::all()]);
+        // return view('restaurant/index', ['cities' => $cities, 'county' => $county, 'restaurant' => Restaurant::all()]);
     }
 
     /**

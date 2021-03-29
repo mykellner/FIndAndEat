@@ -79,7 +79,7 @@
 									@endif
 								</p>
 							</p>
-							<a href="{{ route("restaurants.show", ['county' => $county, 'city' => $city, 'restaurant' => $restaurant]) }}" class="btn btn-yellow">Go to restaurant</a>
+							<a href="{{ route("restaurants.show", ['county' => $county, 'city' => $restaurant->city, 'restaurant' => $restaurant]) }}" class="btn btn-yellow">Go to restaurant</a>
 						</div>
 					</div>
 				</div>
