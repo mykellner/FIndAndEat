@@ -49,7 +49,7 @@
 			@foreach ($restaurants as $restaurant)
 				<div class="row">
 					<div class="col-12">
-						<h2>{{$restaurant->name}}</h2>
+						<h2><a href="{{route("restaurants.show", ['county' => $restaurant->city->county, 'city' => $restaurant->city, 'restaurant' => $restaurant ])}}">{{$restaurant->name}}</h2></a>
 						<p>{{$restaurant->description}} | {{$restaurant->address}} </p>
 					</div>
 				</div>
