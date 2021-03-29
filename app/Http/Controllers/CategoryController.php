@@ -58,7 +58,8 @@ class CategoryController extends Controller
      */
     public function show(County $county, City $city, Category $category)
     {
-        $restaurants = $category->restaurants->where('city_id', $city->id);
+
+        $restaurants = $category->restaurants->load('city', 'categories')->where('city_id', $city->id);
         return view('categories.show', ['category' => $category, 'city' => $city, 'county' => $county, 'restaurants' => $restaurants]);
     }
 
