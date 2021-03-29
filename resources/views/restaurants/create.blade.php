@@ -51,7 +51,7 @@
             @foreach ($counties as $county)
             <optgroup label = "{{$county->name}}">
             @foreach ($county->cities as $city)
-                <option value="{{$city->id}}" name="city_{{$city->id}}">{{$city->name}}</option>
+                <option value="{{$city->id}}" name="city_{{$city->id}}" @if($city->id == $city->id) selected @endif">{{$city->name}}</option>
             @endforeach
             </optgroup>
             @endforeach
