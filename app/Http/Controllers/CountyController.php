@@ -21,7 +21,9 @@ class CountyController extends Controller
 
         return view('counties/index', [
 			'counties' => County::all(),
-			'restaurants' => Restaurant::orderBy('id')->take(3)->get()
+			'restaurants' => Restaurant::latest()->take(5)->get()
+            
+            
 		]);
 
     }
