@@ -70,7 +70,6 @@ class CountyController extends Controller
 
         return view('counties/show', [
 			'county' => $county,
-			'restaurants' => $county->restaurants,
 			'categories' => Category::all()
 		]);
 

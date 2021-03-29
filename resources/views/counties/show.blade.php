@@ -52,7 +52,7 @@
 			<h2>Restaurants</h2>
 			<div class="row row-cols-1 row-cols-md-2 g-4">
 
-			@foreach ($restaurants as $restaurant)
+			@foreach ($county->restaurants as $restaurant)
 				<div class="col">
 					<div class="card h-100">
 						<div class="card-body">
