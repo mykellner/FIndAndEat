@@ -12,8 +12,8 @@
 		<button type="submit" class="btn btn-green w-100">Create</button>
 	</form>
 
-	<div class="mt-5">
-		<a href="{{ route ('counties.index')}} class="btn btn-secondary">&laquo; Back</a>
+	<div class="mt-4">
+		<a href="{{ route('counties.index') }}" class="btn btn-secondary">&laquo; Back</a>
 	</div>
 
 </div>
