@@ -21,14 +21,4 @@ class County extends Model
         return $this->hasManyThrough(Restaurant::class, City::class, 'county_id', 'city_id');
     }
 
-    // protected static function boot() {
-    //     parent::boot();
-
-    //     static::deleting(function($county) {
-    //         foreach($county->cities as $city){
-    //           $city->delete();
-    //         }
-    //     });
-    // }
-
 }
