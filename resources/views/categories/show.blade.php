@@ -58,7 +58,7 @@
 						<div class="card-body">
 							<h3 class="card-title mb-0">{{ $restaurant->name }}</h3>
 							<p class="card-text mb-0">
-								<ul class="list-inline">
+								<ul class="list-inline mb-0">
 								<small>Ort: {{ $restaurant->city->name }} | </small>
 
 								@if(count($restaurant->categories) > 0)
@@ -69,9 +69,9 @@
 								@else
 									<small><li class="list-inline-item">No specefic category</li></small>
 								@endif
-
-									<li class="list-inline-item"><small>Address: {{ $restaurant->address }}</li></small>
 								</ul>
+
+								<small>Address: {{ $restaurant->address }}</small>
 
 								<p class="description">
 									@if(!empty($restaurant->description))
