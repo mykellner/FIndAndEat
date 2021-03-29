@@ -62,20 +62,20 @@
 						<div class="card-body">
 							<h3 class="card-title mb-0">{{ $restaurant->name }}</h3>
 							<p class="card-text mb-0">
-								<ul class="list-inline">
+								<ul class="list-inline mb-0">
 									<small>Ort: {{ $restaurant->city->name }} | </small>
 
 									@if(count($restaurant->categories) > 0)
-									<small>Categories:
+									<small>Categories:</small>
 										@foreach ($restaurant->categories as $category )
-											<li class="list-inline-item">{{ $category->name }}</li></small>
+										<small><li class="list-inline-item">{{ $category->name }}</li></small>
 										@endforeach
 									@else
 										<small><li class="list-inline-item">No specefic category</li></small>
 									@endif
-									<small>Address: {{ $restaurant->address}}</small>
-								</ul>
 
+								</ul>
+								<small>Address: {{ $restaurant->address}}</small>
 								<p class="description">
 									@if(!empty($restaurant->description))
 										{{ substr($restaurant->description, 0, 100)}} ...
