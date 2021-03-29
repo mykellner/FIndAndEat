@@ -14,14 +14,19 @@ class County extends Model
         return $this->hasMany(City::class);
     }
 
-    protected static function boot() {
-        parent::boot();
-
-        static::deleting(function($county) {
-            foreach($county->cities as $city){
-              $city->delete();
-            }
-        });
+    public function restaurants()
+    {
+        return $this->hasManyThrough(Restaurant::class, City::class);
     }
+
+    // protected static function boot() {
+    //     parent::boot();
+
+    //     static::deleting(function($county) {
+    //         foreach($county->cities as $city){
+    //           $city->delete();
+    //         }
+    //     });
+    // }
 
 }

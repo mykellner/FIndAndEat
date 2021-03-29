@@ -68,7 +68,7 @@ class CountyController extends Controller
 
         return view('counties/show', [
 			'county' => $county,
-			'restaurants' => Restaurant::orderBy('name')->get(),
+			'restaurants' => $county->restaurants(),
 			'categories' => Category::all()
 		]);
 
