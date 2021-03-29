@@ -4,6 +4,8 @@ namespace App\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Restaurant;
+use App\Models\City;
 
 class County extends Model
 {
@@ -16,7 +18,7 @@ class County extends Model
 
     public function restaurants()
     {
-        return $this->hasManyThrough(Restaurant::class, City::class);
+        return $this->hasManyThrough(Restaurant::class, City::class, 'county_id', 'city_id');
     }
 
     // protected static function boot() {
