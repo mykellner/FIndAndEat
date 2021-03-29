@@ -64,7 +64,7 @@ class CityController extends Controller
     public function show(County $county, City $city)
     {
         $categories = Category::all();
-        return view('cities/show', ['city' => $city, 'county' => $county, 'categories' => $categories]);
+        return view('cities/show', ['city' => $city->load('restaurants.categories', 'restaurants.city'), 'county' => $county,  'categories' => $categories]);
     }
 
     /**
