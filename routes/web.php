@@ -4,6 +4,7 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountyController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SuggestionController;
 use Illuminate\Support\Facades\Route;
 
 /*

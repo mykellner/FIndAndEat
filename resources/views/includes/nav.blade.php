@@ -3,8 +3,8 @@
 		<a class="navbar-brand" href="{{ url('/') }}">
 			{{ config('app.name', 'Laravel') }}
 		</a>
-		
-		<a class="nav-link" href="{{url('/')}}">
+
+		<a class="nav-link" href="{{ route('suggestions.create')}}">
 			{{ __('Suggest a restaurant')}}
 		</a>
 

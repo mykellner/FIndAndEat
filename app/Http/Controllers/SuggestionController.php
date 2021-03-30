@@ -25,7 +25,7 @@ class SuggestionController extends Controller
      */
     public function create()
     {
-        //
+        return view('suggestions/create');
     }
 
     /**
@@ -36,7 +36,17 @@ class SuggestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        Suggestion::create([
+			'fname' => $request->input('fname'),
+			'lname' => $request->input('lname'),
+			'name' => $request->input('name'),
+			'city' => $request->input('city'),
+			'county' => $request->input('county'),
+			'description' => $request->input('description'),
+		]);
+
+        return redirect()->route('counties.index')->with('success', 'Thank you for your suggestion!');
     }
 
     /**
