@@ -16,7 +16,7 @@ class AlterLinkstAddForeignKeysLinktypeIdRestaurantId extends Migration
         Schema::table('links', function (Blueprint $table) {
             
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
-            $table->foreign('type_id')->references('id')->on('link_types');
+            $table->foreign('link_type_id')->references('id')->on('link_types');
         });
     }
 
@@ -28,7 +28,6 @@ class AlterLinkstAddForeignKeysLinktypeIdRestaurantId extends Migration
     public function down()
     {
         Schema::table('links', function (Blueprint $table) {
-            
 
             $table->dropForeign(['restaurant_id']);
             $table->dropForeign(['type_id']);
