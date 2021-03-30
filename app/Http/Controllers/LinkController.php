@@ -47,7 +47,7 @@ class LinkController extends Controller
         $link = $restaurant->links()->create([
             'url' => $request->input('url'),
             'description' => $request->input('description'),
-            'type_id' => $request->input('types'),
+            'link_type_id' => $request->input('types'),
             ]);
 
             return redirect()->route('restaurants.show', ['restaurant' => $restaurant, 'city' => $city, 'county' => $county])->with('success', 'Added link to restaurant.');

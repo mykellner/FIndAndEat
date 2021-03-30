@@ -47,7 +47,7 @@
 		</div>
 
 		<div class="col-sm-8">
-				<div>
+			<div>
 				<h2>{{$restaurant->name}}</h2>
 				<p>{{$restaurant->description}}</p>
 				<p>{{$restaurant->address}}</p>
@@ -55,25 +55,17 @@
 					{{ $category->name }}</p>
 				@endforeach
 			</div>
-			<div class="linktypes d-flex">
-
-			@foreach ($restaurant->links as $link)
-				<p>{{$link->url}}</p>
-				<p>{{$link->linktype->type}}</p>
-			
-					{{-- @foreach ($linktype->links as $link)
-						<a href="">{{$link->url}}</a>
-					@endforeach --}}
-			
-            @endforeach
-			{{-- @foreach ($links as $link)
-			@if ($link->linktype->type === 'website')
-			<div><p>Website:{{$link->url}}</p></div>
-			
-			{{-- @elseif
-			 	($linktype->type === 'social')<div><p>Social:{{$linktype->url}}</p></div>@elseif
-				($linktype->type === 'email')<div><p>Email:{{$linktype->url}}</p></div>@endif --}}
-			
+			<div class="row mt-5">
+				@foreach ($linktypes as $linktype)
+				<div class="col-md-4">
+				<p><strong>{{$linktype->type}}</strong></p>
+					@foreach ($restaurant->links as $link)
+						@if ($link->link_type->id === $linktype->id)
+						<p><a href="">{{$link->url}}</a></p>
+					@endif
+			@endforeach
+		</div>
+				@endforeach
 			</div>
 		</div>
 	</div>
