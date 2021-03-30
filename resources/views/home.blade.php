@@ -14,19 +14,33 @@
                         </div>
                     @endif
 
-
-				<h3>Suggestion</h3>
+					@foreach ($suggestions as $suggestion)
+					<h3>Restaurant suggestions: {{$suggestions->count()}}</h3>
+					@endforeach
 
 					@foreach ($suggestions as $suggestion)
-						{{$suggestion->fname}} {{$suggestion->lname}}
-						{{$suggestion->name}}
-						{{$suggestion->city}}
-						{{$suggestion->description}}
-
+					<div class="card mb-4">
+						<div class="toast-header">
+						  <strong class="me-auto">Suggestion from: {{$suggestion->fname}} {{$suggestion->lname}}</strong>
+						  <small class="text-muted">{{$suggestion->updated_at}}</small>
+						  <form action="{{ route('suggestions.destroy', ['suggestion' => $suggestion->id]) }}" method="POST">
+							@csrf
+							@method('DELETE')
+							<button type="submit" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+						</form>
+						</div>
+						<div class="toast-body">
+							<ul>
+								<li><strong class="me-auto">Restaurant: {{$suggestion->name}}</strong></li>
+								<li><strong class="me-auto">City: {{$suggestion->city}}</strong></li>
+								<li><strong class="me-auto">County: {{$suggestion->county}}</strong></li>
+								<li><strong class="me-auto">Description: {{$suggestion->description}}</strong></li>
+							</ul>
+						</div>
+					</div>
 					@endforeach
-				</div>
 
-									{{-- <a href="{{ route("restaurants.show", ['county' => $county, 'city' => $restaurant->city, 'restaurant' => $restaurant]) }}" class="btn btn-yellow">Go to restaurant</a> --}}
+				</div>
 			</div>
 		</div>
 	</div>

@@ -91,6 +91,8 @@ class SuggestionController extends Controller
      */
     public function destroy(Suggestion $suggestion)
     {
-        //
+        abort_unless(Auth::check(), 401);
+        $suggestion->delete();
+		return redirect()->route('home')->with('success', 'Suggestion deleted');
     }
 }
