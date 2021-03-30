@@ -17,7 +17,7 @@ class CreateLinksTable extends Migration
             $table->id();
             $table->string('url');
             $table->string('description')->nullable();
-            $table->bigInteger('type_id')->unsigned();
+            $table->bigInteger('link_type_id')->unsigned();
             $table->bigInteger('restaurant_id')->unsigned();
             $table->timestamps();
         });

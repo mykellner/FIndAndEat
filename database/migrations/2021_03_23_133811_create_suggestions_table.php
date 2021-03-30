@@ -18,6 +18,9 @@ class CreateSuggestionsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('city');
+            $table->string('county');
+            $table->string('fname');
+            $table->string('lname')->nullable();
             $table->timestamps();
         });
     }
