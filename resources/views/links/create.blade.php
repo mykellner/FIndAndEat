@@ -7,7 +7,7 @@
 	<form class="form" action='{{ route('links.store',  ['county' => $county, 'city' => $city, 'restaurant' => $restaurant])}} ' method="POST">
 	@csrf
 		<div class="mb-3">
-			<input type="text" id="url" name="url" class="form-control" placeholder="URL" required>
+			<input type="text" id="url" name="url" class="form-control" placeholder="URL/EMAIL" required>
 		</div>
         <div class="mb-3">
 			<input type="text" id="description" name="description" class="form-control" placeholder="Description">
