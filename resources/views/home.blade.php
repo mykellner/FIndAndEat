@@ -14,28 +14,22 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
 
-					<h4>Here are peoples suggestions on new restaurants</4>
-						@foreach ($suggestions as $suggestion)
+				<h3>Suggestion</h3>
+
+					@foreach ($suggestions as $suggestion)
+						{{$suggestion->fname}} {{$suggestion->lname}}
+						{{$suggestion->name}}
+						{{$suggestion->city}}
+						{{$suggestion->description}}
 
 
-						<div class="col-sm-12">
-							<div class="card h-100">
-								<div class="card-body">
-									<p class="card-text mb-0">
-										{{$suggestion->fname}} {{$suggestion->lname}},
-										{{$suggestion->name}}
-										{{$suggestion->city}}
+					@endforeach
+				</div>
 
-									</p>
-								</div>
-							</div>
-						</div>
-
-						@endforeach
-            </div>
-        </div>
-    </div>
+									{{-- <a href="{{ route("restaurants.show", ['county' => $county, 'city' => $restaurant->city, 'restaurant' => $restaurant]) }}" class="btn btn-yellow">Go to restaurant</a> --}}
+			</div>
+		</div>
+	</div>
 </div>
 @endsection
