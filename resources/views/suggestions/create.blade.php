@@ -55,8 +55,6 @@
 		<textarea id="description" name="description" class="form-control" placeholder="Why should we add this restaurant?" rows="3" required></textarea>
 	</div>
 
-
-
 	<button type="submit" class="btn btn-success w-100">Send</button>
 	</form>
 

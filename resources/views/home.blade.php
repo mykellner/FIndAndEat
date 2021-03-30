@@ -23,7 +23,6 @@
 						{{$suggestion->city}}
 						{{$suggestion->description}}
 
-
 					@endforeach
 				</div>
 
