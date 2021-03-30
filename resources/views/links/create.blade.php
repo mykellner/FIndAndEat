@@ -10,7 +10,7 @@
 			<input type="text" id="url" name="url" class="form-control" placeholder="URL" required>
 		</div>
         <div class="mb-3">
-			<input type="text" id="description" name="description" class="form-control" placeholder="Description" required>
+			<input type="text" id="description" name="description" class="form-control" placeholder="Description">
 		</div>
         <label class="" for="cities">Type:</label>
         <select id="types" name="types" class="mb-3">

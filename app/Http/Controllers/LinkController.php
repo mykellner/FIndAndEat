@@ -70,21 +70,31 @@ class LinkController extends Controller
      * @param  \App\Models\Link  $link
      * @return \Illuminate\Http\Response
      */
-    public function edit(Link $link)
+    public function edit(County $county, City $city, Restaurant $restaurant, Link $link)
     {
-        //
+        return view('links/edit', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant, 'link' => $link, 'types' => LinkType::all()]);
     }
 
-    /**
+    /*
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Link  $link
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Link $link)
+    public function update(Request $request, County $county, City $city, Restaurant $restaurant, Link $link)
     {
-        //
+        
+            abort_unless(Auth::check(), 401);
+    
+            $link->update([
+                'url' => $request->input('url'),
+                'description' => $request->input('description'),
+                'link_type_id' => $request->input('types'),
+                ]);
+    
+            
+            return redirect()->route('restaurants.show', ['city' => $city, 'county' => $county,'restaurant' => $restaurant])->with('success', 'Link has been updated.');
     }
 
     /**
@@ -93,8 +103,10 @@ class LinkController extends Controller
      * @param  \App\Models\Link  $link
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Link $link)
+    public function destroy(County $county, City $city, Restaurant $restaurant, Link $link)
     {
-        //
+        abort_unless(Auth::check(), 401);
+        $link->delete();
+		return redirect()->route('restaurants.show', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant])->with('success', 'Link has been deleted');
     }
 }

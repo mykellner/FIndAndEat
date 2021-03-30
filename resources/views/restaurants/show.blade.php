@@ -64,8 +64,16 @@
 							@if($linktype->type === 'email')
 							<a href="mailto:{{$link->url}}">{{$link->url}}</a>
 							@else
-							<p><a href=" {{$link->url}}" target="_blank">{{$link->url}}</a></p>
+							<a href=" {{$link->url}}" target="_blank">{{$link->url}}</a>
 							@endif
+							@auth
+							<form action="{{ route('links.destroy', ['county' => $county,'city' => $city, 'restaurant' => $restaurant, 'link' => $link->id]) }}" method="POST">
+								@csrf
+								@method('DELETE')
+								<button type="submit" class="btn btn-sm btn-red mb-2">x</button>
+							</form>
+							<a href="{{ route('links.edit', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant, 'link' => $link->id])}}" class="btn btn-yellow mb-2">Edit</a>
+							@endauth
 						@endif
 			@endforeach
 		</div>
