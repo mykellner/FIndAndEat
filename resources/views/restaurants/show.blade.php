@@ -60,22 +60,24 @@
 				<div class="col-md-4">
 				<p><strong>{{$linktype->type}}</strong></p>
 					@foreach ($restaurant->links as $link)
+					<div class="d-flex">
 						@if ($link->link_type->id === $linktype->id)
 							@if($linktype->type === 'email')
-							<a href="mailto:{{$link->url}}">{{$link->url}}</a>
+							<a href="mailto:{{$link->url}}" class="me-5">{{$link->url}}</a>
 							@else
-							<a href=" {{$link->url}}" target="_blank">{{$link->url}}</a>
+							<a href=" {{$link->url}}" class="me-5" target="_blank">{{$link->url}}</a>
 							@endif
 							@auth
 							<form action="{{ route('links.destroy', ['county' => $county,'city' => $city, 'restaurant' => $restaurant, 'link' => $link->id]) }}" method="POST">
 								@csrf
 								@method('DELETE')
-								<button type="submit" class="btn btn-sm btn-red mb-2">x</button>
+								<button type="submit" class="btn btn-sm btn-red me-1"><i class="fas fa-trash fa-xs"></i></button>
 							</form>
-							<a href="{{ route('links.edit', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant, 'link' => $link->id])}}" class="btn btn-yellow mb-2">Edit</a>
+							<button class="btn btn-yellow btn-sm"><a href="{{ route('links.edit', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant, 'link' => $link->id])}}" class=""><i class="fas fa-pen fa-xs"></i></a></button>
 							@endauth
 						@endif
-			@endforeach
+					</div>
+					@endforeach
 		</div>
 				@endforeach
 			</div>
