@@ -1,6 +1,9 @@
 @extends('layouts/app')
 
 @section('content')
+
+<div class="container py-4">
+
  <h1 class="mb-3">Edit {{$restaurant->name}} </h1>
 
  <form class="form" action='{{ route('restaurants.update', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant])}} ' method="POST">
@@ -13,7 +16,7 @@
 
     <div class="mb-3">
         <label for="title" class="form-label">Description</label>
-        <input type="text" id="description" name="description" class="form-control" placeholder="Description" value="{{$restaurant->description}}" required>
+        <textarea id="description" name="description" class="form-control" placeholder="Description" value="{{$restaurant->description}}" required rows="7"></textarea>
     </div>
 
     <div class="mb-3">

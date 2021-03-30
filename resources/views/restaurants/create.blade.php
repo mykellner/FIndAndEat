@@ -15,7 +15,7 @@
 
 		<div class="mb-3">
 			<label for="title" class="form-label">Description</label>
-			<input type="text" id="description" name="description" class="form-control" placeholder="Description" required>
+			<textarea id="description" name="description" class="form-control" placeholder="Description" rows="7" required></textarea>
 		</div>
 
 		<div class="mb-3">
@@ -51,11 +51,11 @@
         <label class="" for="cities">City</label>
         <select id="cities" name="cities">
             @foreach ($counties as $county)
-            <optgroup label = "{{$county->name}}">
-            @foreach ($county->cities as $thiscity)
-                <option value="{{$thiscity->id}}" name="city_{{$thiscity->id}}" @if($thiscity->id == $city->id) selected @endif">{{$thiscity->name}}</option>
-            @endforeach
-            </optgroup>
+				<optgroup label = "{{$county->name}}">
+					@foreach ($county->cities as $thiscity)
+						<option value="{{$thiscity->id}}" name="city_{{$thiscity->id}}" @if($thiscity->id == $city->id) selected @endif">{{$thiscity->name}}<option>
+					@endforeach
+				</optgroup>
             @endforeach
         </select>
 
