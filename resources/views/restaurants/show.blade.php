@@ -61,8 +61,12 @@
 				<p><strong>{{$linktype->type}}</strong></p>
 					@foreach ($restaurant->links as $link)
 						@if ($link->link_type->id === $linktype->id)
-						<p><a href="">{{$link->url}}</a></p>
-					@endif
+							@if($linktype->type === 'email')
+							<a href="mailto:{{$link->url}}">{{$link->url}}</a>
+							@else
+							<p><a href=" {{$link->url}}" target="_blank">{{$link->url}}</a></p>
+							@endif
+						@endif
 			@endforeach
 		</div>
 				@endforeach
