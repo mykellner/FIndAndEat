@@ -18,14 +18,15 @@
 
 					<h4>Here are peoples suggestions on new restaurants</4>
 
-						<div class="col-4">
-
-
-						{{-- <div class="card-body">
-							<p>{{ $suggestion->fname }} {{ $suggestion->lname }}</p>
-						</div> --}}
-					</div>
-
+						<div class="col-sm-4">
+							<div class="card h-100">
+								<div class="card-body">
+									<h3 class="card-title mb-0">Name</h3>
+									<p class="card-text mb-0">
+										bla bla bla
+									</p>
+								</div>
+							</div>
 
 
 
