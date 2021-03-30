@@ -6,6 +6,7 @@ use App\Models\Restaurant;
 use App\Models\County;
 use App\Models\City;
 use App\Models\Category;
+use App\Models\Link;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -65,7 +66,8 @@ class RestaurantController extends Controller
     public function show(County $county, City $city, Restaurant $restaurant)
     {
         //
-        return view('restaurants.show', ['city' => $city, 'county' => $county,'restaurant' => $restaurant]);
+        return view('restaurants.show', ['city' => $city, 'county' => $county,'restaurant' => $restaurant->load('links.linktype')]);
+
     }
 
     /**
