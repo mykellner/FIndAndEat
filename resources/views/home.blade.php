@@ -17,17 +17,23 @@
                     {{ __('You are logged in!') }}
 
 					<h4>Here are peoples suggestions on new restaurants</4>
+						@foreach ($suggestions as $suggestion)
 
-						<div class="col-sm-4">
+
+						<div class="col-sm-12">
 							<div class="card h-100">
 								<div class="card-body">
-									<h3 class="card-title mb-0">Name</h3>
 									<p class="card-text mb-0">
-										bla bla bla
+										{{$suggestion->fname}} {{$suggestion->lname}},
+										{{$suggestion->name}}
+										{{$suggestion->city}}
+
 									</p>
 								</div>
 							</div>
 						</div>
+
+						@endforeach
             </div>
         </div>
     </div>
