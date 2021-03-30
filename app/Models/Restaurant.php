@@ -20,6 +20,6 @@ class Restaurant extends Model
     }
 
     public function links () {
-        return $this->hasMany(Links::class);
+        return $this->hasMany(Link::class);
     }
 }

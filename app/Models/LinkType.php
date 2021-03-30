@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class LinkType extends Model
 {
-    use HasFactory;
+    protected $fillable = ['name'];
+
+    public function links () {
+        return $this->hasMany(Links::class);
+    }
 }

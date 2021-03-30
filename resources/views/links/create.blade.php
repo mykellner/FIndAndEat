@@ -13,9 +13,9 @@
 			<input type="text" id="description" name="description" class="form-control" placeholder="Description" required>
 		</div>
         <label class="" for="cities">Type:</label>
-        <select id="types" name="types">
+        <select id="types" name="types" class="mb-3">
             @foreach ($types as $type)
-                <option value="{{$type->id}}" name="city_{{$type->id}}">{{$type->name}}</option>
+                <option value="{{$type->id}}" name="city_{{$type->id}}">{{$type->type}}</option>
             @endforeach
         </select>
 		<button type="submit" class="btn btn-green w-100">Create</button>
