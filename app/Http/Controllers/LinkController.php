@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Link;
+use App\Models\LinkType;
+use App\Models\Restaurant;
+use App\Models\County;
+use App\Models\City;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class LinkController extends Controller
 {
@@ -22,9 +28,10 @@ class LinkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(County $county, City $city, Restaurant $restaurant)
     {
-        //
+        abort_unless(Auth::check(), 401);
+        return view('links/create', ['restaurant' => $restaurant, 'city' => $city, 'county' => $county, 'types' => LinkType::all()]);
     }
 
     /**
@@ -33,9 +40,17 @@ class LinkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, County $county, City $city, Restaurant $restaurant)
     {
-        //
+        abort_unless(Auth::check(), 401);
+
+        $link = $restaurant->links()->create([
+            'url' => $request->input('url'),
+            'description' => $request->input('description'),
+            'type_id' => $request->input('types'),
+            ]);
+
+            return redirect()->route('restaurants.show', ['restaurant' => $restaurant, 'city' => $city, 'county' => $county])->with('success', 'Added link to restaurant.');
     }
 
     /**

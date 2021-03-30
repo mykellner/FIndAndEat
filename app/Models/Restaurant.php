@@ -18,4 +18,8 @@ class Restaurant extends Model
         return $this->belongsToMany(Category::class, 'category_restaurant', 'restaurant_id', 'category_id');
     
     }
+
+    public function links () {
+        return $this->hasMany(Links::class);
+    }
 }

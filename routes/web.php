@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\LinkController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountyController;
 use App\Http\Controllers\RestaurantController;
