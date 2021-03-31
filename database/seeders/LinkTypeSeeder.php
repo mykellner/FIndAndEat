@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 
 class LinkTypeSeeder extends Seeder
 {
-    protected static $linktypes = ['website', 'social', 'email'];
+    protected static $linktypes = ['Website', 'Social', 'Email'];
     /**
      * Run the database seeds.
      *

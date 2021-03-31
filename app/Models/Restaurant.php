@@ -11,7 +11,7 @@ class Restaurant extends Model
         return $this->belongsTo(City::class);
     }
 
-    protected $fillable = ['name','description','address','city_id'];
+    protected $fillable = ['name','description','address','city_id', 'phonenumber', 'latitude', 'longitude'];
 
     public function categories(){
 

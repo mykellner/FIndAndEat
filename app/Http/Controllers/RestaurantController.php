@@ -55,6 +55,9 @@ class RestaurantController extends Controller
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'address' => $request->input('address'),
+            'phonenumber' => $request->input('phonenumber'),
+            'latitude' => $request->input('latitude'),
+            'longitude' => $request->input('longitude'),
             'city_id' => $request->input('cities'),
             ]);
 
@@ -109,6 +112,9 @@ class RestaurantController extends Controller
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'address' => $request->input('address'),
+            'phonenumber' => $request->input('phonenumber'),
+            'latitude' => $request->input('latitude'),
+            'longitude' => $request->input('longitude'),
             'city_id' => $request->input('cities'),
             ]);
 

@@ -18,7 +18,7 @@
 
 		<div class="mb-3">
 			<label for="description" class="form-label">Description</label>
-			<textarea id="description" name="description" class="form-control" @error('name') is-invalid @enderror placeholder="Description" rows="7" required>{{ old('name') }}</textarea>
+			<textarea id="description" name="description" class="form-control" @error('name') is-invalid @enderror placeholder="Description" rows="7" required>{{ old('name') }}	<textarea>
 
 				@error('description')
 					<div id="description" class="validation-error">{{ $message }}</div>
@@ -35,17 +35,17 @@
 		</div>
 
 		<div class="mb-3">
-			<label for="title" class="form-label">Phone number</label>
-			<input type="text" id="phone" name="phone" class="form-control" placeholder="Phone number">
+			<label for="phonenumber" class="form-label">Phone number</label>
+			<input type="text" id="phonenumber" name="phonenumber" class="form-control" placeholder="Phone number">
 		</div>
 
 		<div class="mb-3">
-			<label for="title" class="form-label">Latitude</label>
+			<label for="latitude" class="form-label">Latitude</label>
 			<input type="text" id="latitude" name="latitude" class="form-control" placeholder="Latitude">
 		</div>
 
 		<div class="mb-3">
-			<label for="title" class="form-label">Longitude</label>
+			<label for="longitude" class="form-label">Longitude</label>
 			<input type="text" id="longitude" name="longitude" class="form-control" placeholder="Longitude">
 		</div>
 

@@ -22,7 +22,7 @@
 						<button type="submit" class="btn btn-red mb-2">Delete this Restaurant</button>
 					</form>
 
-					<a href="{{ route('links.create', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant])}}" class="btn btn-green mb-2">Add links to restaurant</a>
+					<a href="{{ route('links.create', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant])}}" class="btn btn-green mb-2">Add links to Restaurant</a>
 
 				</div>
 
@@ -41,26 +41,45 @@
 			<h2>{{$restaurant->city->name}}</h2>
 
 			<div class="mt-4">
-				<a href="{{ route ('cities.show', ['county' => $county, 'city' => $city])}}" class="btn btn-secondary w-100" >&laquo; Back</a>
+				<a href="{{ route ('cities.show', ['county' => $county, 'city' => $city])}}" class="btn btn-secondary w-100" >&laquo; Back to {{$city->name}}</a>
 			</div>
 
 		</div>
 
 		<div class="col-sm-8">
-			<div>
-				<h2>{{$restaurant->name}}</h2>
-				<p>{{$restaurant->description}}</p>
-				<p>{{$restaurant->address}}</p>
-				@foreach($restaurant->categories as $category)
-					{{ $category->name }}</p>
-				@endforeach
-			</div>
+			<div class="col-sm-8">
+				<div>
+					<h2>{{$restaurant->name}}</h2>
+					<div class="d-flex">
+						<p class="me-2">Description: </p>
+						<p>{{$restaurant->description}}</p>
+					</div>
+					<div class="d-flex">
+						<p class="me-2">Address: </p>
+						<p>{{$restaurant->address}}</p>
+					</div>
+					<div class="d-flex">
+						<p class="me-2">Categories: </p>
+						<p> @foreach($restaurant->categories as $category)
+								{{ $category->name }}
+							@endforeach
+						</p>
+					</div>
+					<div class="d-flex">
+						@if ($restaurant->phonenumber)
+							<p class="me-2">Phonenumber: </p>
+							<p> {{$restaurant->phonenumber}} </p>
+						@endif
+					</div>
+				</div>
+				</div>
 			<div class="row mt-5">
+				<h5>Get in contact with {{$restaurant->name}}</h5>
 				@foreach ($linktypes as $linktype)
 				<div class="col-md-4">
 				<p><strong>{{$linktype->type}}</strong></p>
 					@foreach ($restaurant->links as $link)
-					<div class="d-flex">
+					<div class="d-flex mb-1">
 						@if ($link->link_type->id === $linktype->id)
 							@if($linktype->type === 'email')
 							<a href="mailto:{{$link->url}}" class="me-5">{{$link->url}}</a>

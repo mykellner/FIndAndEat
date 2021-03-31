@@ -43,7 +43,7 @@
 
     <div class="mb-3">
         <label for="phone" class="form-label">Phone number</label>
-        <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone number"  value="{{$restaurant->phonenumber}}">
+        <input type="text" id="phonenumber" name="phonenumber" class="form-control" placeholder="Phone number"  value="{{$restaurant->phonenumber}}">
     </div>
 
     <div class="mb-3">
