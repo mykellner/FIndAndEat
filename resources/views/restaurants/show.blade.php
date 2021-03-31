@@ -10,7 +10,8 @@
 			<div class="row">
 				<div class="col-lg-10">
 					<h1>Admin Panel</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, rem tempore necessitatibus reprehenderit labore.</p>
+					<h4>You're in the admin panel for restaurant <u><strong>{{$restaurant->name}}</strong></u> in {{$city->name}}, {{$county->name}} County</h4>
+					<p>You can edit this restaurant, add links to it or delete it.</p>
 				</div>
 
 				<div class="col-lg-2 text-end">
@@ -51,19 +52,20 @@
 				<div>
 					<h2>{{$restaurant->name}}</h2>
 					<div class="d-flex">
-						<p class="me-2">Description: </p>
-						<p>{{$restaurant->description}}</p>
-					</div>
-					<div class="d-flex">
-						<p class="me-2">Address: </p>
-						<p>{{$restaurant->address}}</p>
-					</div>
-					<div class="d-flex">
 						<p class="me-2">Categories: </p>
 						<p> @foreach($restaurant->categories as $category)
 								{{ $category->name }}
 							@endforeach
 						</p>
+					</div>
+
+					<div class="d-flex">
+						<p class="me-4">Address: </p>
+						<p>{{$restaurant->address}}</p>
+					</div>
+					<div class="d-flex">
+						<p class="me-2">Description: </p>
+						<p>{{$restaurant->description}}</p>
 					</div>
 					<div class="d-flex">
 						@if ($restaurant->phonenumber)
