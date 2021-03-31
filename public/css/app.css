@@ -10772,3 +10772,11 @@ main {
 .btn-red {
   background-color: #e3342f !important;
 }
+
+.toast:not(.showing):not(.show) {
+  opacity: 1;
+}
+
+.toast {
+  box-shadow: none;
+}

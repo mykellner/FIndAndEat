@@ -16,7 +16,7 @@
 
     <div class="mb-3">
         <label for="title" class="form-label">Description</label>
-        <textarea id="description" name="description" class="form-control" placeholder="Description" value="{{$restaurant->description}}" required rows="7"></textarea>
+        <textarea id="description" name="description" class="form-control" placeholder="Description" required rows="7">{{$restaurant->description}}</textarea>
     </div>
 
     <div class="mb-3">

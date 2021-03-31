@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Suggestion extends Model
 {
-    use HasFactory;
+    protected $fillable = ['fname','lname', 'name','description','city','county'];
+
 }

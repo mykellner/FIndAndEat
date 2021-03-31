@@ -54,3 +54,10 @@ main {
 		background-color: $red !important;
 }
 
+.toast:not(.showing):not(.show) {
+	opacity: 1;
+}
+
+.toast {
+	box-shadow: none;
+}
