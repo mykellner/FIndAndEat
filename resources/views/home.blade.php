@@ -14,9 +14,9 @@
                         </div>
                     @endif
 
-					@foreach ($suggestions as $suggestion)
+					
 					<h3>Restaurant suggestions: {{$suggestions->count()}}</h3>
-					@endforeach
+					
 
 					@foreach ($suggestions as $suggestion)
 					<div class="card mb-4">
