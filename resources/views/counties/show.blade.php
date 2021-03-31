@@ -8,7 +8,9 @@
 			<div class="row">
 				<div class="col-lg-10">
 					<h1>Admin Panel</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, rem tempore necessitatibus reprehenderit labore.</p>
+					<h4>You're in <strong><u>{{$county->name}}</u></strong> County</h4>
+					<p>In this panel you can create new cities, edit this county or delete this county</p>
+
 				</div>
 
 				<div class="col-lg-2 text-end">
@@ -33,7 +35,7 @@
 
 	<div class="row">
 		<div class="col-lg-4 sidebar mb-3">
-			<h2>Welcome to {{$county->name}}</h2>
+			<h2>Welcome to <u>{{$county->name}}</u>!</h2>
 
 			<select class="form-select form-select mb-3" id="counties" name="counties" onchange="top.location.href = this.options[this.selectedIndex].value">
 				<option selected>Choose a City</option>
@@ -49,7 +51,7 @@
 		</div>
 
 		<div class="col-sm-8">
-			<h2>Restaurants</h2>
+			<h4>Restaurants in <strong>{{$county->name}}</strong></h4>
 			<div class="row row-cols-1 row-cols-md-2 g-4">
 
 			@foreach ($county->restaurants as $restaurant)

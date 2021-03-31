@@ -9,7 +9,8 @@
 			<div class="row">
 				<div class="col-lg-10">
 					<h1>Admin Panel</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, rem tempore necessitatibus reprehenderit labore.</p>
+					<h4>You're in the category: <u>{{$category->name}}</u> in {{$city->name}}, {{$county->name}} County</h4>
+					<p>In this panel you can edit this category or delete it.</p>
 				</div>
 
 				<div class="col-lg-2 text-end">
@@ -32,15 +33,7 @@
 	<div class="row">
 		<div class="col-lg-4 sidebar mb-3">
 			<h2>Welcome to {{$city->name}}, {{$county->name}}</h2>
-			<h4>Category: {{$category->name}}</h4>
-
-			{{-- <select class="form-select form-select mb-3" id="counties" name="counties" onchange="top.location.href = this.options[this.selectedIndex].value">
-				<option selected>Choose a City</option>
-				@foreach ($county->cities as $city)
-					<option value="{{ route("cities.show", ['county' => $county, 'city' => $city]) }}">{{$city->name}}</option>
-				@endforeach
-			</select> --}}
-
+			<h4>Category: {{ $category->name }}</h4>
 
 			<div class="mt-4">
 				<a href="{{ route('cities.show', ['county' => $county, 'city' => $city]) }}" class="btn btn-secondary w-100" >&laquo; Back to {{$city->name}}</a>

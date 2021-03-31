@@ -8,7 +8,8 @@
 			<div class="row">
 				<div class="col-lg-10">
 					<h1>Admin Panel</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, rem tempore necessitatibus reprehenderit labore.</p>
+					<h4>You're in <strong><u>{{$city->name}}</u></strong> in {{$county->name}} County</h4>
+					<p>In this panel you can create restaurants, create categories, edit this city or delete this city
 				</div>
 
 				<div class="col-lg-2 col-sm-12 text-end">
@@ -53,7 +54,7 @@
 		</div>
 
 		<div class="col-sm-8">
-			<h2>Restaurants in {{$city->name}}</h2>
+			<h4>Restaurants in <strong> {{$city->name}} </strong></h4>
 			<div class="row row-cols-1 row-cols-md-2 g-4">
 
 			@foreach ($city->restaurants as $restaurant)
