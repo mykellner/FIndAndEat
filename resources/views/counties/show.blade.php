@@ -35,7 +35,7 @@
 
 	<div class="row">
 		<div class="col-lg-4 sidebar mb-3">
-			<h2>Welcome to <u>{{$county->name}}</u>!</h2>
+			<h2>Welcome to {{$county->name}}!</h2>
 
 			<select class="form-select form-select mb-3" id="counties" name="counties" onchange="top.location.href = this.options[this.selectedIndex].value">
 				<option selected>Choose a City</option>
