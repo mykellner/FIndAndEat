@@ -47,7 +47,6 @@ class LinkController extends Controller
         $request->validate([
             'url' => 'required',
             'description' => 'required',
-            'link_type_id' => 'required',
             
         ]);
 
@@ -97,7 +96,6 @@ class LinkController extends Controller
             $request->validate([
                 'url' => 'required',
                 'description' => 'required',
-                'link_type_id' => 'required',
                 
             ]);
     
