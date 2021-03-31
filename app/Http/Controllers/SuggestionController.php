@@ -37,6 +37,14 @@ class SuggestionController extends Controller
     public function store(Request $request)
     {
 
+		$request->validate([
+			'fname' => 'required',
+			'name' => 'required',
+			'city' => 'required',
+			'county' => 'required',
+			'description' => 'required',
+		]);
+
         Suggestion::create([
 			'fname' => $request->input('fname'),
 			'lname' => $request->input('lname'),

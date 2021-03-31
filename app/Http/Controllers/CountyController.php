@@ -22,8 +22,6 @@ class CountyController extends Controller
         return view('counties/index', [
 			'counties' => County::all(),
 			'restaurants' => Restaurant::with('city.county')->latest()->take(5)->get()
-            
-            
 		]);
 
     }
@@ -49,6 +47,10 @@ class CountyController extends Controller
     {
 
         abort_unless(Auth::check(), 401);
+
+		$request->validate([
+			'name' => 'required|unique:counties',
+		]);
 
         $county = County::create([
 			'name' => $request->input('name')
@@ -80,7 +82,7 @@ class CountyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(County $county)
-    {   
+    {
         abort_unless(Auth::check(), 401);
         return view('counties/edit',[
 			'county' => $county
@@ -97,6 +99,10 @@ class CountyController extends Controller
     public function update(Request $request, County $county)
     {
         abort_unless(Auth::check(), 401);
+
+		$request->validate([
+			'name' => 'required|unique:counties',
+		]);
 
         $county->update([
 			'name' => $request->input('name'),

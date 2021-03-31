@@ -6,13 +6,20 @@
 
 	<form class="form" action='{{ route('links.store',  ['county' => $county, 'city' => $city, 'restaurant' => $restaurant])}} ' method="POST">
 	@csrf
-		<div class="mb-3">
-			<input type="text" id="url" name="url" class="form-control" placeholder="URL/EMAIL" required>
-		</div>
-        <div class="mb-3">
-			<input type="text" id="description" name="description" class="form-control" placeholder="Description">
-		</div>
-        <label class="" for="cities">Type:</label>
+
+		<label for="title" class="form-label">URL or email</label>
+		<input type="text" id="url" name="url" class="form-control @error('url') is-invalid @enderror" placeholder="url/email" value="{{ old('name') }}" >
+		@error('url')
+			<div id="url" class="validation-error">{{ $message }}</div>
+		@enderror
+
+		<label for="title" class="form-label">Description</label>
+		<input type="text" id="description" name="description" class="form-control @error('description') is-invalid @enderror" placeholder="Description" value="{{ old('description') }}">
+		@error('description')
+			<div id="description" class="validation-error">{{ $message }}</div>
+		@enderror
+
+        <label class="mt-3" for="cities">Type:</label>
         <select id="types" name="types" class="mb-3">
             @foreach ($types as $type)
                 <option value="{{$type->id}}" name="city_{{$type->id}}">{{$type->type}}</option>

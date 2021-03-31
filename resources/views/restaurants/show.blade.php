@@ -47,20 +47,37 @@
 		</div>
 
 		<div class="col-sm-8">
-			<div>
-				<h2>{{$restaurant->name}}</h2>
-				<p>{{$restaurant->description}}</p>
-				<p>{{$restaurant->address}}</p>
-				@foreach($restaurant->categories as $category)
-					{{ $category->name }}</p>
-				@endforeach
-			</div>
+			<div class="col-sm-8">
+				<div>
+					<h2>{{$restaurant->name}}</h2>
+					<div class="d-flex">
+						<p class="me-2">Description: </p>
+						<p>{{$restaurant->description}}</p>
+					</div>
+					<div class="d-flex">
+						<p class="me-2">Address: </p>
+						<p>{{$restaurant->address}}</p>
+					</div>
+					<div class="d-flex">
+						<p class="me-2">Categories: </p>
+						<p> @foreach($restaurant->categories as $category)
+								{{ $category->name }}
+							@endforeach
+						</p>
+					</div>
+					<div class="d-flex">
+						@if ($restaurant->phonenumber != null)
+							<p class="me-2">Phonenumber: </p>
+							<p> {{$restaurant->phonenumber}} </p>
+						@endif
+					</div>
+				</div>
 			<div class="row mt-5">
 				@foreach ($linktypes as $linktype)
 				<div class="col-md-4">
 				<p><strong>{{$linktype->type}}</strong></p>
 					@foreach ($restaurant->links as $link)
-					<div class="d-flex">
+					<div class="d-flex mb-1">
 						@if ($link->link_type->id === $linktype->id)
 							@if($linktype->type === 'email')
 							<a href="mailto:{{$link->url}}" class="me-5">{{$link->url}}</a>

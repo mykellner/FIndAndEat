@@ -44,6 +44,12 @@ class LinkController extends Controller
     {
         abort_unless(Auth::check(), 401);
 
+        $request->validate([
+            'url' => 'required',
+            'description' => 'required',
+            
+        ]);
+
         $link = $restaurant->links()->create([
             'url' => $request->input('url'),
             'description' => $request->input('description'),
@@ -86,6 +92,12 @@ class LinkController extends Controller
     {
         
             abort_unless(Auth::check(), 401);
+
+            $request->validate([
+                'url' => 'required',
+                'description' => 'required',
+                
+            ]);
     
             $link->update([
                 'url' => $request->input('url'),

@@ -9,18 +9,29 @@
 	@csrf
 
 		<div class="mb-3">
-			<label for="title" class="form-label">Name of Restaurant</label>
-			<input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+			<label for="name" class="form-label">Name of County</label>
+			<input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name" value="{{ old('name') }}" required>
+				@error('name')
+					<div id="name" class="validation-error">{{ $message }}</div>
+				@enderror
 		</div>
 
 		<div class="mb-3">
-			<label for="title" class="form-label">Description</label>
-			<textarea id="description" name="description" class="form-control" placeholder="Description" rows="7" required></textarea>
+			<label for="description" class="form-label">Description</label>
+			<textarea id="description" name="description" class="form-control" @error('name') is-invalid @enderror placeholder="Description" rows="7" required>{{ old('name') }}</textarea>
+
+				@error('description')
+					<div id="description" class="validation-error">{{ $message }}</div>
+				@enderror
+
 		</div>
 
 		<div class="mb-3">
-			<label for="title" class="form-label">Address</label>
-			<input type="text" id="address" name="address" class="form-control" placeholder="Address" required>
+			<label for="address" class="form-label">Address</label>
+			<input type="text" id="address" name="address" class="form-control @error('address') is-invalid @enderror" placeholder="Address" value="{{ old('address') }}" required>
+				@error('address')
+					<div id="address" class="validation-error">{{ $message }}</div>
+				@enderror
 		</div>
 
 		<div class="mb-3">
