@@ -20,7 +20,7 @@ class RestaurantController extends Controller
      */
     public function index(County $county, City $cities)
     {
-    
+
     }
 
     /**
@@ -45,6 +45,12 @@ class RestaurantController extends Controller
 
         abort_unless(Auth::check(), 401);
 
+		$request->validate([
+			'name' => 'required',
+			'description' => 'required',
+			'address' => 'required',
+		]);
+
         $restaurant = Restaurant::create([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
@@ -53,7 +59,7 @@ class RestaurantController extends Controller
             ]);
 
         $restaurant->categories()->attach($request->input('categories'));
-    
+
         return redirect()->route('restaurants.show', ['restaurant' => $restaurant, 'city' => $city, 'county' => $county])->with('success', 'Restaurant has been created.');
     }
 
@@ -93,6 +99,12 @@ class RestaurantController extends Controller
     {
         abort_unless(Auth::check(), 401);
 
+		$request->validate([
+			'name' => 'required',
+			'description' => 'required',
+			'address' => 'required',
+		]);
+
         $restaurant->update([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
@@ -101,7 +113,7 @@ class RestaurantController extends Controller
             ]);
 
             $restaurant->categories()->sync($request->input('categories'));
-            
+
         return redirect()->route('restaurants.show', ['city' => $city, 'county' => $county,'restaurant' => $restaurant])->with('success', 'Restaurant has been updated.');
     }
 
@@ -113,7 +125,7 @@ class RestaurantController extends Controller
      */
     public function destroy(County $county, City $city, Restaurant $restaurant)
     {
-        
+
         abort_unless(Auth::check(), 401);
         $restaurant->delete();
 		return redirect()->route('cities.show', ['county' => $county, 'city' => $city])->with('success', 'Restaurant has been deleted');
