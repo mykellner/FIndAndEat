@@ -43,6 +43,10 @@ class CategoryController extends Controller
     {
         abort_unless(Auth::check(), 401);
 
+        $request->validate([
+            'name' => 'required|unique:categories',
+        ]);
+        
         $category = Category::create([
             'name' => $request->input('name')
         ]);
@@ -86,6 +90,10 @@ class CategoryController extends Controller
     public function update(Request $request, County $county, City $city, Category $category)
     {
         abort_unless(Auth::check(), 401);
+
+        $request->validate([
+            'name' => 'required|unique:categories',
+        ]);
 
         $category->update([
 			'name' => $request->input('name'),
