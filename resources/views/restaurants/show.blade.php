@@ -66,13 +66,15 @@
 						</p>
 					</div>
 					<div class="d-flex">
-						@if ($restaurant->phonenumber != null)
+						@if ($restaurant->phonenumber)
 							<p class="me-2">Phonenumber: </p>
 							<p> {{$restaurant->phonenumber}} </p>
 						@endif
 					</div>
 				</div>
+				</div>
 			<div class="row mt-5">
+				<h5>Get in contact with {{$restaurant->name}}</h5>
 				@foreach ($linktypes as $linktype)
 				<div class="col-md-4">
 				<p><strong>{{$linktype->type}}</strong></p>

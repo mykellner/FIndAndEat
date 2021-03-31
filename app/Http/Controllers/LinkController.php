@@ -46,7 +46,6 @@ class LinkController extends Controller
 
         $request->validate([
             'url' => 'required',
-            'description' => 'required',
             
         ]);
 
@@ -95,7 +94,6 @@ class LinkController extends Controller
 
             $request->validate([
                 'url' => 'required',
-                'description' => 'required',
                 
             ]);
     
