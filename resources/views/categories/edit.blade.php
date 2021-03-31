@@ -10,7 +10,10 @@
 
 	<div class="mb-3">
 		<label for="title" class="form-label">Name of Category</label>
-		<input type="text" id="name" name="name" class="form-control" value="{{$category->name}}" placeholder="Name" required>
+		<input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name" value="{{ $category->name }}" required>
+		@error('name')
+			<div id="name" class="validation-error">{{ $message }}</div>
+		@enderror
 	</div>
 
 	<button type="submit" class="btn btn-success w-100">Update</button>

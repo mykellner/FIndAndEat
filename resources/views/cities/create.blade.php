@@ -10,8 +10,12 @@
 
 	<div class="mb-3">
 		<label for="title" class="form-label">Name of City</label>
-		<input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+ 		<input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name" value="{{ old('name') }}" required>
+ 		@error('name')
+ 			<div id="name" class="validation-error">{{ $message }}</div>
+ 		@enderror
 	</div>
+
 
 	<button type="submit" class="btn btn-success w-100">Create</button>
 	</form>
