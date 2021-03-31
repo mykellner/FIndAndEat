@@ -22,7 +22,7 @@
 						<button type="submit" class="btn btn-red mb-2">Delete this Restaurant</button>
 					</form>
 
-					<a href="{{ route('links.create', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant])}}" class="btn btn-green mb-2">Add links to restaurant</a>
+					<a href="{{ route('links.create', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant])}}" class="btn btn-green mb-2">Add links to Restaurant</a>
 
 				</div>
 
