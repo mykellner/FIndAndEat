@@ -45,7 +45,7 @@
 			</select>
 
 			<div class="mt-4">
-				<a href="{{ route('counties.show', ['county' => $county]) }}" class="btn btn-secondary w-100" >&laquo; Back</a>
+				<a href="{{ route('counties.show', ['county' => $county]) }}" class="btn btn-secondary w-100" >&laquo; Back to {{$county->name}}</a>
 			</div>
 
 

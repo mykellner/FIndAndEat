@@ -43,7 +43,7 @@
 			</select>
 
 			<div class="mt-4">
-				<a href="{{ route('counties.index')}}" class="btn btn-secondary w-100" >&laquo; Back</a>
+				<a href="{{ route('counties.index')}}" class="btn btn-secondary w-100" >&laquo; Back to homepage</a>
 			</div>
 
 		</div>

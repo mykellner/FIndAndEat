@@ -43,7 +43,7 @@
 
 
 			<div class="mt-4">
-				<a href="{{ route('cities.show', ['county' => $county, 'city' => $city]) }}" class="btn btn-secondary w-100" >&laquo; Back</a>
+				<a href="{{ route('cities.show', ['county' => $county, 'city' => $city]) }}" class="btn btn-secondary w-100" >&laquo; Back to {{$city->name}}</a>
 			</div>
 
 		</div>
