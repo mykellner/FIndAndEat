@@ -44,9 +44,13 @@ class CityController extends Controller
         //
         abort_unless(Auth::check(), 401);
 
-        $city = City::create([
+        $request->validate([
+            'name' => 'required|unique:cities',
+            
+        ]);
+
+        $city = $county->cities()->create([
             'name' => $request->input('name'),
-            'county_id' => $county->id,
         ]);
 
         return redirect()->route('cities.show', ['city' => $city, 'county' => $county])->with('success', 'City has been created.');;
@@ -86,6 +90,11 @@ class CityController extends Controller
     public function update(Request $request, County $county, City $city)
     {
         abort_unless(Auth::check(), 401);
+
+        $request->validate([
+            'name' => 'required|unique:cities',
+            
+        ]);
 
         $city->update([
             'name' => $request->input('name'),
