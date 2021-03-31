@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('home',[
-			'suggestions' => Suggestion::latest()->get(),
+			'suggestions' => Suggestion::all(),
 		]);
 
     }
