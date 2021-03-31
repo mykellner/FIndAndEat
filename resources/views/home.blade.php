@@ -13,7 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
 					
 					<h3>Restaurant suggestions: {{$suggestions->count()}}</h3>
 					
