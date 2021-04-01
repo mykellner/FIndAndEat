@@ -23,7 +23,7 @@
     <div class="mb-3">
         <label for="description" class="form-label">Description</label>
 
-		<textarea id="description" name="description" class="form-control" @error('name') is-invalid @enderror placeholder="Description" rows="7" required>{{$restaurant->description}}</textarea>
+		<textarea id="description" name="description" class="form-control @error('description') is-invalid @enderror" placeholder="Description" rows="7" required>{{$restaurant->description}}</textarea>
 
 			@error('description')
 				<div id="description" class="validation-error">{{ $message }}</div>
