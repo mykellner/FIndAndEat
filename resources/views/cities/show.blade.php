@@ -37,7 +37,7 @@
 	<div class="row">
 		<div class="col-lg-4 sidebar mb-3">
 
-			<h2>Restaurants in {{$city->name}}</h2>
+			<h2>Welcome to {{$city->name}}</h2>
 
 			<select class="form-select form-select mb-3" id="cities" name="cities" onchange="top.location.href = this.options[this.selectedIndex].value">
 				<option selected> Change city </option>
@@ -66,7 +66,7 @@
 		</div>
 
 		<div class="col-sm-8">
-			<h4>Restaurants in <strong> {{$city->name}} </strong></h4>
+			<h2>Restaurants in <strong> {{$city->name}} </strong></h2>
 			<div class="row row-cols-1 row-cols-md-2 g-4">
 
 			@foreach ($city->restaurants as $restaurant)

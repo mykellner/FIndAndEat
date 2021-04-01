@@ -39,7 +39,7 @@
 
 	<div class="container py-4">
 		<div class="counties-index mb-4">
-			<h1 class="display-4 text-center">Latest added</h1>
+			<h1 class="display-4 text-center">Latest added Restaurants</h1>
 			<hr class="my-4">
 			@foreach ($restaurants as $restaurant)
 				<div class="row">

@@ -8,7 +8,7 @@
 	@csrf
 
 		<label for="title" class="form-label">URL or email</label>
-		<input type="text" id="url" name="url" class="form-control @error('url') is-invalid @enderror" placeholder="url/email" value="{{ old('name') }}" >
+		<input type="text" id="url" name="url" class="form-control @error('url') is-invalid @enderror" placeholder="url/email" value="{{ old('name') }}" required>
 		@error('url')
 			<div id="url" class="validation-error">{{ $message }}</div>
 		@enderror

@@ -63,7 +63,7 @@
 		</div>
 
 		<div class="col-sm-8">
-			<h4>Restaurants in <strong>{{$county->name}}</strong></h4>
+			<h2>Restaurants in <strong>{{$county->name}}</strong></h2>
 			<div class="row row-cols-1 row-cols-md-2 g-4">
 
 			@foreach ($county->restaurants as $restaurant)

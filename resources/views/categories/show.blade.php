@@ -32,8 +32,17 @@
 
 	<div class="row">
 		<div class="col-lg-4 sidebar mb-3">
-			<h2>Welcome to {{$city->name}}, {{$county->name}}</h2>
+			<h2 class="mb-4">Welcome to {{$city->name}}</h2>
 			<h4>Category: {{ $category->name }}</h4>
+
+			<select class="form-select form-select mb-3" id="categories" name="categories" onchange="top.location.href = this.options[this.selectedIndex].value">
+				<option selected>Change category</option>
+				@foreach ($categories as $categori)
+					@if($category->name != $categori->name)
+						<option value="{{ route('categories.show', ['county' => $county, 'city' => $city, 'category' => $categori]) }}">{{$categori->name}}</option>
+					@endif
+				@endforeach
+			</select>
 
 			<div class="mt-4">
 				<a href="{{ route('cities.show', ['county' => $county, 'city' => $city]) }}" class="btn btn-secondary w-100" >&laquo; Back to {{$city->name}}</a>
@@ -42,7 +51,7 @@
 		</div>
 
 		<div class="col-sm-8">
-			<h2>Restaurants</h2>
+			<h2>Restaurants in {{$city->name}}, category {{$category->name}}</h2>
 			<div class="row row-cols-1 row-cols-md-2 g-4">
 
 			@foreach ($restaurants as $restaurant)

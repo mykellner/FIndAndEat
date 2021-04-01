@@ -39,7 +39,7 @@
 	<div class="row">
 		<div class="col-lg-4 sidebar mb-3">
 
-			<h2>{{$restaurant->city->name}}</h2>
+			<h2>{{$county->name}}, {{$city->name}}, restaurant: </h2>
 
 			<div class="mt-4">
 				<a href="{{ route ('cities.show', ['county' => $county, 'city' => $city])}}" class="btn btn-secondary w-100" >&laquo; Back to {{$city->name}}</a>

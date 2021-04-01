@@ -9,7 +9,7 @@
 	@csrf
 
 		<div class="mb-3">
-			<label for="name" class="form-label">Name of County</label>
+			<label for="name" class="form-label">Name of Restaurant</label>
 			<input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name" value="{{ old('name') }}" required>
 				@error('name')
 					<div id="name" class="validation-error">{{ $message }}</div>
@@ -18,7 +18,7 @@
 
 		<div class="mb-3">
 			<label for="description" class="form-label">Description</label>
-			<textarea id="description" name="description" class="form-control" @error('name') is-invalid @enderror placeholder="Description" rows="7" required>{{ old('description') }}	</textarea>
+			<textarea id="description" name="description" class="form-control" @error('name') is-invalid @enderror placeholder="Description" rows="7" required></textarea>
 
 				@error('description')
 					<div id="description" class="validation-error">{{ $message }}</div>
