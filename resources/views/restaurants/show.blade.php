@@ -69,7 +69,7 @@
 					</div>
 					<div class="d-flex">
 						@if ($restaurant->phonenumber)
-							<p class="me-2">Phonenumber: </p>
+							<p class="me-1">Phoneumber:</p>
 							<p> {{$restaurant->phonenumber}} </p>
 						@endif
 					</div>

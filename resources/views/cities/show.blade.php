@@ -36,9 +36,21 @@
 <div class="container py-4">
 	<div class="row">
 		<div class="col-lg-4 sidebar mb-3">
+
+			<h2>Restaurants in {{$city->name}}</h2>
+
+			<select class="form-select form-select mb-3" id="cities" name="cities" onchange="top.location.href = this.options[this.selectedIndex].value">
+				<option selected> Change city </option>
+				@foreach ($county->cities as $citi)
+					@if($city->name != $citi->name)
+						<option value="{{ route('cities.show', ['county' => $county, 'city' => $citi]) }}">{{$citi->name}}</option>
+					@endif
+				@endforeach
+			</select>
+
 			<h2>Want to be more specific?</h2>
 
-			<select class="form-select form-select mb-3" id="counties" name="counties" onchange="top.location.href = this.options[this.selectedIndex].value">
+			<select class="form-select form-select mb-3" id="categories" name="categories" onchange="top.location.href = this.options[this.selectedIndex].value">
 				<option selected> Choose a Category</option>
 				@foreach ($categories as $category)
 					<option value="{{ route('categories.show', ['county' => $county, 'city' => $city, 'category' => $category]) }}">{{$category->name}}</option>

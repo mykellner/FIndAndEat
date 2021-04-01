@@ -69,7 +69,8 @@ class CountyController extends Controller
     {
 
         return view('counties/show', [
-			'county' => $county->load('restaurants.categories', 'restaurants.city'),
+			'county' => $county->load('restaurants.categories', 'restaurants.city'), 
+            'counties' => County::all(),
 			'categories' => Category::all()
 		]);
 

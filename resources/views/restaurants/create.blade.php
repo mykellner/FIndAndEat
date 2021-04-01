@@ -18,7 +18,7 @@
 
 		<div class="mb-3">
 			<label for="description" class="form-label">Description</label>
-			<textarea id="description" name="description" class="form-control" @error('name') is-invalid @enderror placeholder="Description" rows="7" required>{{ old('name') }}	<textarea>
+			<textarea id="description" name="description" class="form-control" @error('name') is-invalid @enderror placeholder="Description" rows="7" required>{{ old('description') }}	</textarea>
 
 				@error('description')
 					<div id="description" class="validation-error">{{ $message }}</div>
@@ -64,7 +64,8 @@
             @foreach ($counties as $county)
 				<optgroup label = "{{$county->name}}">
 					@foreach ($county->cities as $thiscity)
-						<option value="{{$thiscity->id}}" name="city_{{$thiscity->id}}" @if($thiscity->id == $city->id) selected @endif">{{$thiscity->name}}<option>
+						<option value="{{$thiscity->id}}" name="city_{{$thiscity->id}}" @if($thiscity->id == $city->id) selected @endif">
+							{{$thiscity->name}}</option>
 					@endforeach
 				</optgroup>
             @endforeach

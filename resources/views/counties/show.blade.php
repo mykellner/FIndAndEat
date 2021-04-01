@@ -35,9 +35,21 @@
 
 	<div class="row">
 		<div class="col-lg-4 sidebar mb-3">
+
 			<h2>Welcome to {{$county->name}}!</h2>
 
 			<select class="form-select form-select mb-3" id="counties" name="counties" onchange="top.location.href = this.options[this.selectedIndex].value">
+				<option selected>Change county</option>
+				@foreach ($counties as $counti)
+					@if($county->name != $counti->name)
+						<option value="{{ route("counties.show", ['county' => $counti]) }}">{{$counti->name}}</option>
+					@endif
+				@endforeach
+			</select>
+
+			<h2>Narrow it down?</h2>
+
+			<select class="form-select form-select mb-3" id="cities" name="cities" onchange="top.location.href = this.options[this.selectedIndex].value">
 				<option selected>Choose a City</option>
 				@foreach ($county->cities as $city)
 					<option value="{{ route("cities.show", ['county' => $county, 'city' => $city]) }}">{{$city->name}}</option>
