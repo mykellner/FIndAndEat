@@ -48,3 +48,15 @@ main {
 .toast {
 	box-shadow: none;
 }
+
+.get-info {
+
+	p {
+		text-transform: capitalize;
+
+	}
+
+	strong {
+		font-weight: 800;
+	}
+}

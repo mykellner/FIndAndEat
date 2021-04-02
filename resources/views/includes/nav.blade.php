@@ -4,12 +4,6 @@
 			{{ config('app.name', 'Laravel') }}
 		</a>
 
-		{{-- <a class="nav-link" href="{{ route('suggestions.create')}}">
-			{{ __('Suggest a restaurant')}}
-		</a> --}}
-
-
-
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
 			<span class="navbar-toggler-icon"></span>
 		</button>

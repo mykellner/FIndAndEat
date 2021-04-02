@@ -75,7 +75,7 @@
 					</div>
 				</div>
 				</div>
-			<div class="row mt-5">
+			<div class="get-info row mt-5">
 				<h5>Get in contact with {{$restaurant->name}}</h5>
 				@foreach ($linktypes as $linktype)
 				<div class="col-md-4">

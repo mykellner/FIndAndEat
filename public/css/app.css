@@ -10780,3 +10780,10 @@ main {
 .toast {
   box-shadow: none;
 }
+
+.get-info p {
+  text-transform: capitalize;
+}
+.get-info strong {
+  font-weight: 800;
+}
