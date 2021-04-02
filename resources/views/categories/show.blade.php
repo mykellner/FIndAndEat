@@ -14,12 +14,12 @@
 				</div>
 
 				<div class="col-lg-2 text-end">
-					<a href="{{ route('categories.edit', ['county' => $county, 'city' => $city, 'category' => $category])}}" class="btn btn-yellow mb-2">Edit this Category</a>
+					<a href="{{ route('categories.edit', ['county' => $county, 'city' => $city, 'category' => $category])}}" class="btn btn-info mb-2">Edit this Category</a>
 
 					<form action="{{ route('categories.destroy', ['county' => $county,'city' => $city, 'category' => $category]) }}" method="POST">
 						@csrf
 						@method('DELETE')
-						<button type="submit" class="btn btn-red mb-2">Delete this Category</button>
+						<button type="submit" class="btn btn-warning mb-2">Delete this Category</button>
 					</form>
 				</div>
 
@@ -81,7 +81,7 @@
 									@endif
 								</p>
 							</p>
-							<a href="{{ route("restaurants.show", ['county' => $county, 'city' => $restaurant->city, 'restaurant' => $restaurant]) }}" class="btn btn-yellow">Go to restaurant</a>
+							<a href="{{ route("restaurants.show", ['county' => $county, 'city' => $restaurant->city, 'restaurant' => $restaurant]) }}" class="btn btn-info">Go to restaurant</a>
 						</div>
 					</div>
 				</div>

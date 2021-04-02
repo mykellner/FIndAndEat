@@ -10783,7 +10783,7 @@ main {
 
 .get-info p {
   text-transform: capitalize;
-}
-.get-info strong {
-  font-weight: 800;
+  margin-bottom: 0;
+  font-weight: 900;
+  font-size: 1em;
 }

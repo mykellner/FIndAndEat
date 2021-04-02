@@ -79,7 +79,7 @@
 				<h5>Get in contact with {{$restaurant->name}}</h5>
 				@foreach ($linktypes as $linktype)
 				<div class="col-md-4">
-				<p><strong>{{$linktype->type}}</strong></p>
+				<p class="font-weight-bold">{{$linktype->type}}</p>
 					@foreach ($restaurant->links as $link)
 					<div class="d-flex mb-1">
 						@if ($link->link_type->id === $linktype->id)

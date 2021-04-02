@@ -25,7 +25,7 @@
                 <option value="{{$type->id}}" name="city_{{$type->id}}">{{$type->type}}</option>
             @endforeach
         </select>
-		<button type="submit" class="btn btn-green w-100">Create</button>
+		<button type="submit" class="btn btn-success w-100">Create</button>
 	</form>
 
 	<div class="mt-4">

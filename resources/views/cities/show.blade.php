@@ -14,16 +14,16 @@
 
 				<div class="col-lg-2 col-sm-12 text-end">
 
-					<a href="{{ route('restaurants.create', ['county' => $county, 'city' => $city ]) }}" class="btn  btn-green mb-2">Create a Restaurant</a>
+					<a href="{{ route('restaurants.create', ['county' => $county, 'city' => $city ]) }}" class="btn  btn-success mb-2">Create a Restaurant</a>
 
-					<a href="{{ route('categories.create', ['county' => $county, 'city' => $city]) }}" class="btn btn-green mb-2">Create a Category</a>
+					<a href="{{ route('categories.create', ['county' => $county, 'city' => $city]) }}" class="btn btn-success mb-2">Create a Category</a>
 
-					<a href="{{ route('cities.edit', ['county' => $county, 'city' => $city]) }}" class="btn btn-yellow mb-2">Edit this City</a>
+					<a href="{{ route('cities.edit', ['county' => $county, 'city' => $city]) }}" class="btn btn-info mb-2">Edit this City</a>
 
 					<form action="{{ route('cities.destroy', ['county' => $county,'city' => $city]) }}" method="POST">
 						@csrf
 						@method('DELETE')
-						<button type="submit" class="btn btn-red mb-2">Delete this City</button>
+						<button type="submit" class="btn btn-warning mb-2">Delete this City</button>
 					</form>
 
 				</div>
@@ -96,7 +96,7 @@
 								</p>
 							</p>
 
-							<a href="{{ route('restaurants.show', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant]) }}" class="btn btn-yellow">Go to restaurant</a>
+							<a href="{{ route('restaurants.show', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant]) }}" class="btn btn-info">Go to restaurant</a>
 						</div>
 					</div>
 				</div>

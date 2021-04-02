@@ -6,7 +6,7 @@
 
 	<form class="form" action='{{ route('links.update',  ['county' => $county, 'city' => $city, 'restaurant' => $restaurant, 'link' => $link])}} ' method="POST">
 	@csrf @method('PUT')
-		
+
 		<label for="title" class="form-label">URL or email</label>
 		<input type="text" id="url" name="url" class="form-control @error('url') is-invalid @enderror" placeholder="url/email" value="{{ $link->url }}" required>
 		@error('url')
@@ -25,7 +25,7 @@
                 <option value="{{$type->id}}" name="city_{{$type->id}}" @if($link->link_type->id == $type->id) selected @endif>{{$type->type}}</option>
             @endforeach
         </select>
-		<button type="submit" class="btn btn-green w-100">Update</button>
+		<button type="submit" class="btn btn-success w-100">Update</button>
 	</form>
 
 	<div class="mt-4">

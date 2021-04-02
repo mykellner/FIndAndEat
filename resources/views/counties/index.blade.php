@@ -13,7 +13,7 @@
 			</div>
 
 			<div class="col-lg-2 col-sm-12 text-end">
-				<a href="{{ route('counties.create')}}" class="btn btn-green">Create a County</a>
+				<a href="{{ route('counties.create')}}" class="btn btn-success">Create a County</a>
 			</div>
 		</div>
 	</div>

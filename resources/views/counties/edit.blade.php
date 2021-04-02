@@ -18,7 +18,7 @@
 
 		</div>
 
-		<button type="submit" class="btn btn-green w-100">Update</button>
+		<button type="submit" class="btn btn-success w-100">Update</button>
 	</form>
 
 	<div class="mt-4">
