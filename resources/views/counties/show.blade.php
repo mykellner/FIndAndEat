@@ -15,14 +15,14 @@
 
 				<div class="col-lg-2 text-end">
 
-					<a href="{{ route('cities.create', ['county' => $county]) }}" class="btn btn-green mb-2">Create a City</a>
+					<a href="{{ route('cities.create', ['county' => $county]) }}" class="btn btn-success mb-2">Create a City</a>
 
-					<a href="{{ route('counties.edit', ['county' => $county]) }}" class="btn btn-yellow mb-2">Edit this County</a>
+					<a href="{{ route('counties.edit', ['county' => $county]) }}" class="btn btn-info mb-2">Edit this County</a>
 
 					<form action="{{ route('counties.destroy', ['county' => $county]) }}" method="POST">
 						@csrf
 						@method('DELETE')
-						<button type="submit" class="btn btn-red mb-2">Delete county</button>
+						<button type="submit" class="btn btn-warning mb-2">Delete county</button>
 					</form>
 				</div>
 
@@ -38,21 +38,23 @@
 
 			<h2>Welcome to {{$county->name}}!</h2>
 
+			<select class="form-select form-select mb-3" id="cities" name="cities" onchange="top.location.href = this.options[this.selectedIndex].value">
+				<option selected>Choose a City</option>
+				@foreach ($county->cities as $city)
+					<option value="{{ route("cities.show", ['county' => $county, 'city' => $city]) }}">{{$city->name}}</option>
+				@endforeach
+			</select>
+
+
+
+			<h4>Change county?</h4>
+
 			<select class="form-select form-select mb-3" id="counties" name="counties" onchange="top.location.href = this.options[this.selectedIndex].value">
 				<option selected>Change county</option>
 				@foreach ($counties as $counti)
 					@if($county->name != $counti->name)
 						<option value="{{ route("counties.show", ['county' => $counti]) }}">{{$counti->name}}</option>
 					@endif
-				@endforeach
-			</select>
-
-			<h2>Narrow it down?</h2>
-
-			<select class="form-select form-select mb-3" id="cities" name="cities" onchange="top.location.href = this.options[this.selectedIndex].value">
-				<option selected>Choose a City</option>
-				@foreach ($county->cities as $city)
-					<option value="{{ route("cities.show", ['county' => $county, 'city' => $city]) }}">{{$city->name}}</option>
 				@endforeach
 			</select>
 
@@ -85,15 +87,16 @@
 
 								@endif
 								</ul>
-								<small>Address: {{ $restaurant->address}}</small>
 
+								<small>Address: {{ $restaurant->address}}</small>
 								<p class="description">
 									@if(!empty($restaurant->description))
-										{{ substr($restaurant->description, 0, 100)}} ...
+										{{ substr($restaurant->description, 0, 100)}}
 									@endif
 								</p>
 							</p>
-							<a href="{{ route("restaurants.show", ['county' => $county, 'city' => $restaurant->city, 'restaurant' => $restaurant]) }}" class="btn btn-yellow">Go to restaurant</a>
+
+							<a href="{{ route("restaurants.show", ['county' => $county, 'city' => $restaurant->city, 'restaurant' => $restaurant]) }}" class="btn btn-primary">Go to restaurant</a>
 						</div>
 					</div>
 				</div>

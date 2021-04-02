@@ -8,6 +8,8 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@import 'buttons';
+
 
 main {
 	height: 100%;
@@ -38,21 +40,6 @@ main {
 	padding: 20px;
 }
 
-.btn {
-	color: $white;
-}
-
-.btn-yellow {
-		background-color: $yellow !important;
-}
-
-.btn-green {
-	background-color: $green !important;
-}
-
-.btn-red {
-		background-color: $red !important;
-}
 
 .toast:not(.showing):not(.show) {
 	opacity: 1;

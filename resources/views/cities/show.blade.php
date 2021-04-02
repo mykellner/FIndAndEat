@@ -86,8 +86,8 @@
 									@else
 										<small><li class="list-inline-item">No specefic category</li></small>
 									@endif
-
 								</ul>
+
 								<small>Address: {{ $restaurant->address}}</small>
 								<p class="description">
 									@if(!empty($restaurant->description))
@@ -95,6 +95,7 @@
 									@endif
 								</p>
 							</p>
+
 							<a href="{{ route('restaurants.show', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant]) }}" class="btn btn-yellow">Go to restaurant</a>
 						</div>
 					</div>

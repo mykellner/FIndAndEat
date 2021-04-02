@@ -10730,6 +10730,22 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.btn {
+  color: #ffffff;
+}
+
+.btn-yellow {
+  background-color: #e5cf10 !important;
+}
+
+.btn-green {
+  background-color: #208249 !important;
+}
+
+.btn-red {
+  background-color: #e3342f !important;
+}
+
 main {
   height: 100%;
 }
@@ -10755,22 +10771,6 @@ main {
 .admin-panel {
   background-color: #f1f1f1;
   padding: 20px;
-}
-
-.btn {
-  color: #ffffff;
-}
-
-.btn-yellow {
-  background-color: #e5cf10 !important;
-}
-
-.btn-green {
-  background-color: #208249 !important;
-}
-
-.btn-red {
-  background-color: #e3342f !important;
 }
 
 .toast:not(.showing):not(.show) {
