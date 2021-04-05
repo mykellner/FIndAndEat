@@ -17,12 +17,12 @@
 
 					<a href="{{ route('cities.create', ['county' => $county]) }}" class="btn btn-success mb-2">Create a City</a>
 
-					<a href="{{ route('counties.edit', ['county' => $county]) }}" class="btn btn-info mb-2">Edit this County</a>
+					<a href="{{ route('counties.edit', ['county' => $county]) }}" class="btn btn-warning mb-2">Edit this County</a>
 
 					<form action="{{ route('counties.destroy', ['county' => $county]) }}" method="POST">
 						@csrf
 						@method('DELETE')
-						<button type="submit" class="btn btn-warning mb-2">Delete county</button>
+						<button type="submit" class="btn btn-danger mb-2">Delete county</button>
 					</form>
 				</div>
 
@@ -44,8 +44,6 @@
 					<option value="{{ route("cities.show", ['county' => $county, 'city' => $city]) }}">{{$city->name}}</option>
 				@endforeach
 			</select>
-
-
 
 			<h4>Change county?</h4>
 
@@ -74,7 +72,7 @@
 						<div class="card-body">
 							<h3 class="card-title mb-0">{{ $restaurant->name }}</h3>
 							<p class="card-text mb-0">
-								<ul class="list-inline">
+								<ul class="list-inline mb-0">
 								<small>Ort: {{ $restaurant->city->name }} | </small>
 
 								@if(count($restaurant->categories) > 0)
@@ -96,7 +94,7 @@
 							</p>
 
 
-							<a href="{{ route("restaurants.show", ['county' => $county, 'city' => $restaurant->city, 'restaurant' => $restaurant]) }}" class="btn align-self-end btn-primary w-100">Go to restaurant</a>
+							<a href="{{ route("restaurants.show", ['county' => $county, 'city' => $restaurant->city, 'restaurant' => $restaurant]) }}" class="btn align-self-end btn-primary">Go to restaurant</a>
 						</div>
 
 					</div>

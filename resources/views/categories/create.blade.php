@@ -1,7 +1,7 @@
 @extends('layouts/app')
 
 @section('content')
-<div class="container py-4">
+<div class="container white-background py-4">
 	<h1 class="mb-3">Create a new Category</h1>
 
 	<form class="form" action='{{ route('categories.store', ['county' => $county, 'city' => $city])}} ' method="POST">

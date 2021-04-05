@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container py-4">
+<div class="container white-background py-4">
 
  <h1 class="mb-3">Edit {{$restaurant->name}} </h1>
 

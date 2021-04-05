@@ -18,12 +18,12 @@
 
 					<a href="{{ route('categories.create', ['county' => $county, 'city' => $city]) }}" class="btn btn-success mb-2">Create a Category</a>
 
-					<a href="{{ route('cities.edit', ['county' => $county, 'city' => $city]) }}" class="btn btn-info mb-2">Edit this City</a>
+					<a href="{{ route('cities.edit', ['county' => $county, 'city' => $city]) }}" class="btn btn-warning mb-2">Edit this City</a>
 
 					<form action="{{ route('cities.destroy', ['county' => $county,'city' => $city]) }}" method="POST">
 						@csrf
 						@method('DELETE')
-						<button type="submit" class="btn btn-warning mb-2">Delete this City</button>
+						<button type="submit" class="btn btn-danger mb-2">Delete this City</button>
 					</form>
 
 				</div>
@@ -67,7 +67,7 @@
 
 		<div class="col-sm-8">
 			<h2>Restaurants in <strong> {{$city->name}} </strong></h2>
-			<div class="row row-cols-1 row-cols-md-2 g-4">
+			<div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 g-4">
 
 			@foreach ($city->restaurants as $restaurant)
 				<div class="col">
@@ -88,7 +88,6 @@
 									@endif
 								</ul>
 
-								<small>Address: {{ $restaurant->address}}</small>
 								<p class="description">
 									@if(!empty($restaurant->description))
 										{{ substr($restaurant->description, 0, 100)}} ...

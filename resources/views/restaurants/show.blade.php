@@ -15,15 +15,15 @@
 				</div>
 
 				<div class="col-lg-2 text-end">
-					<a href="{{ route('restaurants.edit', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant])}}" class="btn btn-yellow mb-2">Edit this Restaurant</a>
+					<a href="{{ route('restaurants.edit', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant])}}" class="btn btn-warning mb-2">Edit this Restaurant</a>
 
 					<form action="{{ route('restaurants.destroy', ['county' => $county,'city' => $city, 'restaurant' => $restaurant]) }}" method="POST">
 						@csrf
 						@method('DELETE')
-						<button type="submit" class="btn btn-red mb-2">Delete this Restaurant</button>
+						<button type="submit" class="btn btn-danger mb-2">Delete this Restaurant</button>
 					</form>
 
-					<a href="{{ route('links.create', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant])}}" class="btn btn-green mb-2">Add links to Restaurant</a>
+					<a href="{{ route('links.create', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant])}}" class="btn btn-success mb-2">Add links to Restaurant</a>
 
 				</div>
 
@@ -92,7 +92,7 @@
 							<form action="{{ route('links.destroy', ['county' => $county,'city' => $city, 'restaurant' => $restaurant, 'link' => $link->id]) }}" method="POST">
 								@csrf
 								@method('DELETE')
-								<button type="submit" class="btn btn-sm btn-red me-1"><i class="fas fa-trash fa-xs"></i></button>
+								<button type="submit" class="btn btn-sm btn-danger me-1"><i class="fas fa-trash fa-xs"></i></button>
 							</form>
 							<button class="btn btn-yellow btn-sm"><a href="{{ route('links.edit', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant, 'link' => $link->id])}}" class=""><i class="fas fa-pen fa-xs"></i></a></button>
 							@endauth
