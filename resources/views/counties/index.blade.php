@@ -20,9 +20,7 @@
 </div>
 @endauth
 
-
-<div class="jumbotron">
-	<div class="container py-4">
+	<div class="container white-background py-4">
 		<div class="counties-index mb-4">
 			<h1 class="display-4 text-center">Are you hungry?</h1>
 			<p class="lead text-center">Where in Sweden do you want to eat?</p>
@@ -37,14 +35,16 @@
 		</div>
 	</div>
 
-	<div class="container py-4">
+	<div class="container white-background py-4">
 		<div class="counties-index mb-4">
 			<h1 class="display-4 text-center">Latest added Restaurants</h1>
 			<hr class="my-4">
 			@foreach ($restaurants as $restaurant)
 				<div class="row">
 					<div class="col-12">
-						<h2><a href="{{route("restaurants.show", ['county' => $restaurant->city->county, 'city' => $restaurant->city, 'restaurant' => $restaurant ])}}">{{$restaurant->name}}</h2></a>
+						<h2>
+							<a href="{{route("restaurants.show", ['county' => $restaurant->city->county, 'city' => $restaurant->city, 'restaurant' => $restaurant ])}}">{{$restaurant->name}}
+						</a></h2>
 						<p>{{$restaurant->description}} | {{$restaurant->address}} </p>
 					</div>
 				</div>
@@ -53,7 +53,7 @@
 
 		</div>
 	</div>
-</div>
+
 
 
 

@@ -12,7 +12,7 @@
 			<!-- Left Side Of Navbar -->
 			<ul class="navbar-nav me-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="{{ route('suggestions.create') }}">{{ __('Suggestion a restaurant') }}</a>
+					<a class="nav-link" href="{{ route('suggestions.create') }}">{{ __('Suggest a restaurant') }}</a>
 				</li>
 			</ul>
 

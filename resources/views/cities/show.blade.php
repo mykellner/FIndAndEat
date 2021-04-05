@@ -33,7 +33,7 @@
 	</div>
 @endauth
 
-<div class="container py-4">
+<div class="container white-background py-4">
 	<div class="row">
 		<div class="col-lg-4 sidebar mb-3">
 
@@ -96,7 +96,7 @@
 								</p>
 							</p>
 
-							<a href="{{ route('restaurants.show', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant]) }}" class="btn btn-info">Go to restaurant</a>
+							<a href="{{ route('restaurants.show', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant]) }}" class="btn btn-primary">Go to restaurant</a>
 						</div>
 					</div>
 				</div>

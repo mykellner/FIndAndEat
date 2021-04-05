@@ -31,7 +31,7 @@
 	</div>
 @endauth
 
-<div class="container py-4">
+<div class="container white-background py-4">
 
 	<div class="row">
 		<div class="col-lg-4 sidebar mb-3">
@@ -66,7 +66,7 @@
 
 		<div class="col-sm-8">
 			<h2>Restaurants in <strong>{{$county->name}}</strong></h2>
-			<div class="row row-cols-1 row-cols-md-2 g-4">
+			<div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 g-4">
 
 			@foreach ($county->restaurants as $restaurant)
 				<div class="col">
@@ -83,12 +83,11 @@
 										<li class="list-inline-item">{{ $category->name }}</li></small>
 									@endforeach
 								@else
-									<small><li class="list-inline-item">No specefic category</li></small>
+									<small><li class="list-inline-item">No specific category</li></small>
 
 								@endif
 								</ul>
 
-								<small>Address: {{ $restaurant->address}}</small>
 								<p class="description">
 									@if(!empty($restaurant->description))
 										{{ substr($restaurant->description, 0, 100)}}
@@ -96,8 +95,10 @@
 								</p>
 							</p>
 
-							<a href="{{ route("restaurants.show", ['county' => $county, 'city' => $restaurant->city, 'restaurant' => $restaurant]) }}" class="btn btn-primary">Go to restaurant</a>
+
+							<a href="{{ route("restaurants.show", ['county' => $county, 'city' => $restaurant->city, 'restaurant' => $restaurant]) }}" class="btn align-self-end btn-primary w-100">Go to restaurant</a>
 						</div>
+
 					</div>
 				</div>
 			@endforeach

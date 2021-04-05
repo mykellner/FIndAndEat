@@ -1,7 +1,7 @@
 @extends('layouts/app')
 
 @section('content')
-<div class="container py-4">
+<div class="container white-background py-4">
 	<h1 class="mb-3">Send in your Suggestion</h1>
 
 	<form class="form" action='{{ route('suggestions.store')}} ' method="POST">
@@ -11,7 +11,7 @@
 
 		<div class="col">
 			<div class="mb-3">
-				<label for="fname" class="form-label">Your First Name</label>
+				<label for="fname" class="form-label">First Name</label>
 				<input type="text" id="fname" name="fname" class="form-control @error('fname') is-invalid @enderror" placeholder="Name" value="{{ old('fname') }}" required>
 				@error('fname')
 					<div id="fname" class="validation-error">{{ $message }}</div>
@@ -21,7 +21,7 @@
 
 		<div class="col">
 			<div class="mb-3">
-				<label for="lname" class="form-label">Your Last Name</label>
+				<label for="lname" class="form-label">Last Name</label>
 				<input type="text" id="lname" name="lname" class="form-control" placeholder="Your last name">
 			</div>
 		</div>
@@ -31,7 +31,7 @@
 	<div class="col">
 		<div class="mb-3">
 			<label for="name" class="form-label">Name of the restaurant</label>
-			<input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name of restaurant" value="{{ old('name') }}" required>
+			<input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name of the restaurant" value="{{ old('name') }}" required>
 				@error('name')
 					<div id="name" class="validation-error">{{ $message }}</div>
 				@enderror
