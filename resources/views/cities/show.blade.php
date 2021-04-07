@@ -90,7 +90,7 @@
 
 								<p class="description">
 									@if(!empty($restaurant->description))
-										{{ substr($restaurant->description, 0, 100)}} ...
+										{{ substr($restaurant->description, 0, 100)}}
 									@endif
 								</p>
 							</p>

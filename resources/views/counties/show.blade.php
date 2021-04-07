@@ -73,17 +73,15 @@
 							<h3 class="card-title mb-0">{{ $restaurant->name }}</h3>
 							<p class="card-text mb-0">
 								<ul class="list-inline mb-0">
-								<small>Ort: {{ $restaurant->city->name }} | </small>
-
-								@if(count($restaurant->categories) > 0)
-									<small>Categories:
-									@foreach ($restaurant->categories as $category )
-										<li class="list-inline-item">{{ $category->name }}</li></small>
-									@endforeach
-								@else
-									<small><li class="list-inline-item">No specific category</li></small>
-
-								@endif
+									<small>Ort: {{ $restaurant->city->name }} | </small>
+									@if(count($restaurant->categories) > 0)
+										<small>Categories:
+										@foreach ($restaurant->categories as $category )
+											<li class="list-inline-item">{{ $category->name }}</li></small>
+										@endforeach
+									@else
+										<small><li class="list-inline-item">No specific category</li></small>
+									@endif
 								</ul>
 
 								<p class="description">
@@ -92,7 +90,6 @@
 									@endif
 								</p>
 							</p>
-
 
 							<a href="{{ route("restaurants.show", ['county' => $county, 'city' => $restaurant->city, 'restaurant' => $restaurant]) }}" class="btn align-self-end btn-primary">Go to restaurant</a>
 						</div>
