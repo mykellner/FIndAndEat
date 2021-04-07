@@ -15,7 +15,6 @@
 				@error('name')
 					<div id="name" class="validation-error">{{ $message }}</div>
 				@enderror
-
 		</div>
 
 		<button type="submit" class="btn btn-success w-100">Update</button>

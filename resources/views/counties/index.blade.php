@@ -40,7 +40,7 @@
 			<h1 class="display-4 text-center">Latest added Restaurants</h1>
 			<hr class="my-4">
 			@foreach ($restaurants as $restaurant)
-				<div class="row">
+				<div class="row px-4">
 					<div class="col-12">
 						<h2>
 							<a href="{{route("restaurants.show", ['county' => $restaurant->city->county, 'city' => $restaurant->city, 'restaurant' => $restaurant ])}}">{{$restaurant->name}}
