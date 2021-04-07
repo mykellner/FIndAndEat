@@ -83,10 +83,10 @@
 					@foreach ($restaurant->links as $link)
 					<div class="d-flex mb-1">
 						@if ($link->link_type->id === $linktype->id)
-							@if($linktype->type === 'email')
+							@if($linktype->type === 'Email')
 							<a href="mailto:{{$link->url}}" class="me-5">{{$link->url}}</a>
 							@else
-							<a href=" {{$link->url}}" class="me-5" target="_blank">{{$link->url}}</a>
+							<a href=" {{$link->url}}" class="me-5" target="_blank">{{$link->description}}</a>
 							@endif
 							@auth
 							<form action="{{ route('links.destroy', ['county' => $county,'city' => $city, 'restaurant' => $restaurant, 'link' => $link->id]) }}" method="POST">
