@@ -10734,23 +10734,14 @@ textarea.form-control-lg {
   color: #ffffff;
 }
 
-.btn-yellow {
-  background-color: #e5cf10 !important;
-}
-
-.btn-green {
-  background-color: #208249 !important;
-}
-
-.btn-red {
-  background-color: #e3342f !important;
+body {
+  height: 100%;
 }
 
 main {
-  height: 150vh;
   background-image: url("/img/bg.jpg");
   background-size: cover;
-  padding-top: 20px;
+  padding: 20px;
 }
 
 a {
@@ -10787,4 +10778,8 @@ a {
   margin-bottom: 0;
   font-weight: 900;
   font-size: 1em;
+}
+
+footer {
+  color: white;
 }

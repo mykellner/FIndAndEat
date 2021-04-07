@@ -14,8 +14,8 @@
 	<main class="wrapper">
 			@include('includes/status')
 				@yield('content')
+			@include('includes/footer')
 	</main>
 
-	@include('includes/footer')
 
 </body>

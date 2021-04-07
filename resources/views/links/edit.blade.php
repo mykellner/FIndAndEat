@@ -1,7 +1,7 @@
 @extends('layouts/app')
 
 @section('content')
-<div class="container py-4">
+<div class="container white-background py-4">
 	<h1 class="mb-3"> Edit link </h1>
 
 	<form class="form" action='{{ route('links.update',  ['county' => $county, 'city' => $city, 'restaurant' => $restaurant, 'link' => $link])}} ' method="POST">

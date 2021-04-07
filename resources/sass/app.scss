@@ -11,11 +11,14 @@
 @import 'buttons';
 
 
+body {
+	height: 100%;
+}
+
 main {
-	height: 150vh;
 	background-image: url("/img/bg.jpg");
 	background-size: cover;
-	padding-top: 20px;
+	padding: 20px;
 }
 
 a {
@@ -25,7 +28,6 @@ a {
 .white-background {
 	background-color: #fff;
 	opacity: 0.9;
-
 }
 
 .navbar-brand {
@@ -58,4 +60,9 @@ a {
 		font-weight: 900;
 		font-size: 1em;
 	}
+}
+
+
+footer {
+	color: white;
 }
