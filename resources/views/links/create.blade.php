@@ -14,7 +14,7 @@
 		@enderror
 
 		<label for="title" class="form-label">Description</label>
-		<input type="text" id="description" name="description" class="form-control @error('description') is-invalid @enderror" placeholder="Description" value="{{ old('description') }}">
+		<input type="text" id="description" name="description" class="form-control @error('description') is-invalid @enderror" placeholder="Description" value="{{ old('description') }}" required>
 		@error('description')
 			<div id="description" class="validation-error">{{ $message }}</div>
 		@enderror
