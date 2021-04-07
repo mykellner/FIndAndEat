@@ -75,9 +75,9 @@
 								<ul class="list-inline mb-0">
 									<small>Ort: {{ $restaurant->city->name }} | </small>
 									@if(count($restaurant->categories) > 0)
-										<small>Categories:
+										<small>Categories:</small>
 										@foreach ($restaurant->categories as $category )
-											<li class="list-inline-item">{{ $category->name }}</li></small>
+											<small><li class="list-inline-item">{{ $category->name }}</li></small>
 										@endforeach
 									@else
 										<small><li class="list-inline-item">No specific category</li></small>
