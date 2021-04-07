@@ -50,7 +50,7 @@ class LinkController extends Controller
             
         ]);
 
-        $link = $restaurant->links()->create([
+        $restaurant->links()->create([
             'url' => $request->input('url'),
             'description' => $request->input('description'),
             'link_type_id' => $request->input('types'),
