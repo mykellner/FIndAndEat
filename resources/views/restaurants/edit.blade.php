@@ -61,7 +61,6 @@
         <label class="col-md-4 control-label" for="selectbasic">Categories</label>
         <ul>
             @foreach ($categories as $category)
-            {{-- <li><input type="checkbox" name="categories[]" value="{{$category->id}}">{{$category->name}}</li> --}}
 
             <div class="form-check form-check-inline">
                 <input type="checkbox" class="form-check-input" name="categories[]" id="category_{{$category->id}}" value="{{$category->id}}" @if($restaurant->categories->contains($category)) checked @endif>
@@ -73,15 +72,19 @@
     </fieldset>
     </div>
 
-    <div class="form-group mb-3">
-        <label class="" for="cities">City</label>
-        <select id="cities" name="cities">
-            @foreach ($cities as $city)
-                <option value="{{$city->id}}" name="city_{{$city->id}}" @if($restaurant->city->id == $city->id) selected @endif">{{$city->name}}</option>
-            @endforeach
-        </select>
+    <label class="" for="cities">City</label>
+    <select id="cities" name="cities" class="mb-3">
+        @foreach ($counties as $county)
+            <optgroup label = "{{$county->name}}">
+                @foreach ($county->cities as $thiscity)
+                    <option value="{{$thiscity->id}}" name="city_{{$thiscity->id}}" @if($thiscity->id == $restaurant->city->id) selected @endif">
+                        {{$thiscity->name}}</option>
+                @endforeach
+            </optgroup>
+        @endforeach
+    </select>
 
-    </div>
+
 
     <button type="submit" class="btn btn-success w-100 ">Update</button>
 

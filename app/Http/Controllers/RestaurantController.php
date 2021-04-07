@@ -88,7 +88,7 @@ class RestaurantController extends Controller
     public function edit(County $county, City $city, Restaurant $restaurant)
     {
         abort_unless(Auth::check(), 401);
-        return view('restaurants/edit', ['city' => $city, 'county' => $county,'restaurant' => $restaurant, 'cities' => City::all(), 'categories' => Category::all()]);
+        return view('restaurants/edit', ['city' => $city, 'county' => $county,'restaurant' => $restaurant, 'cities' => City::all(), 'categories' => Category::all(), 'counties' => County::with('cities')->orderBy('name')->get()]);
     }
 
     /**
