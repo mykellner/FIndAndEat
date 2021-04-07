@@ -94,7 +94,9 @@
 								@method('DELETE')
 								<button type="submit" class="btn btn-sm btn-danger me-1"><i class="fas fa-trash fa-xs"></i></button>
 							</form>
-							<button class="btn btn-yellow btn-sm"><a href="{{ route('links.edit', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant, 'link' => $link->id])}}" class=""><i class="fas fa-pen fa-xs"></i></a></button>
+							<form action="">
+								<button class="btn btn-yellow btn-sm"><a href="{{ route('links.edit', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant, 'link' => $link->id])}}" class=""><i class="fas fa-pen fa-xs"></a></i></button>
+							</form>
 							@endauth
 						@endif
 					</div>
