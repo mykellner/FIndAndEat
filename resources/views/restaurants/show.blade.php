@@ -78,7 +78,7 @@
 			<div class="get-info row mt-5">
 				<h5>Get in contact with {{$restaurant->name}}</h5>
 				@foreach ($linktypes as $linktype)
-				<div class="col-md-4">
+				<div class="col">
 				<p class="font-weight-bold">{{$linktype->type}}</p>
 					@foreach ($restaurant->links as $link)
 					<div class="d-flex mb-1">
@@ -95,7 +95,7 @@
 								<button type="submit" class="btn btn-sm btn-danger me-1"><i class="fas fa-trash fa-xs"></i></button>
 							</form>
 							<div>
-								<button class="btn btn-yellow btn-sm"><a href="{{ route('links.edit', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant, 'link' => $link->id])}}" class=""><i class="fas fa-pen fa-xs"></a></i></button>
+								<a href="{{ route('links.edit', ['county' => $county, 'city' => $city, 'restaurant' => $restaurant, 'link' => $link->id])}}"><button class="btn btn-warning btn-sm"><i class="fas fa-pen fa-xs"></i></button></a>
 							</div>
 							@endauth
 						@endif
