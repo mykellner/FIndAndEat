@@ -10736,13 +10736,15 @@ textarea.form-control-lg {
 
 body {
   height: 100%;
+  background: url(/img/bg.jpg) no-repeat;
+  background-size: cover;
+  background-size: 100% auto;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
-main {
-  background: url(/img/bg.jpg) no-repeat center center fixed;
-  background-size: cover;
+.wrapper {
   padding: 30px 20px 20px 20px;
-  height: 150vh;
 }
 
 a {
@@ -10751,7 +10753,11 @@ a {
 
 .white-background {
   background-color: #fff;
-  opacity: 0.9;
+  opacity: 0.95;
+}
+
+.restaurant-container {
+  min-height: 650px;
 }
 
 .navbar-brand {
@@ -10762,7 +10768,7 @@ a {
 }
 
 .admin-panel {
-  background-color: #f1f1f1;
+  background-color: #ecf1f5;
   padding: 20px;
 }
 

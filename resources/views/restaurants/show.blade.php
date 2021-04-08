@@ -34,7 +34,7 @@
 
 
 
-<div class="container white-background py-4">
+<div class="container white-background restaurant-container py-4">
 
 	<div class="row">
 		<div class="col-lg-4 sidebar mb-3">

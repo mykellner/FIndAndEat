@@ -35,7 +35,7 @@
 		</div>
 	</div>
 
-	<div class="container white-background py-4">
+	<div class="container white-background mt-4 py-4">
 		<div class="counties-index mb-4">
 			<h1 class="display-4 text-center">Latest added Restaurants</h1>
 			<hr class="my-4">
