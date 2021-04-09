@@ -84,7 +84,7 @@
 					<div class="d-flex mb-1">
 						@if ($link->link_type->id === $linktype->id)
 							@if($linktype->type === 'Email')
-							<a href="mailto:{{$link->url}}" class="me-5">{{$link->url}}</a>
+							<a href="mailto:{{$link->url}}" class="me-5" target="_blank">{{$link->url}}</a>
 							@else
 							<a href=" {{$link->url}}" class="me-5" target="_blank">{{$link->description}}</a>
 							@endif
